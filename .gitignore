@@ -25,6 +25,3 @@
 # Ignore system and hidden files
 .DS_Store
 Thumbs.db
-
-# Ignore uploads page
-/uploads/

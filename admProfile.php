@@ -2,6 +2,27 @@
 include('./includes/connection.php');
 include('./includes/protect.php');
 include('./includes/currentUserInfos.php');
+
+if (isset($_POST['name_adm'])) {
+    $name_adm = $_POST['name_adm'];
+    $email_adm = $_POST['email_adm'];
+    $UF_adm = $_POST['uf_adm'];
+    $since_adm = $_POST['since_adm'];
+    $status_adm = $_POST['status_adm'];
+    $role_adm = $_POST['role_adm'];
+    $picture_adm = $_POST['picture_adm'];
+} else {
+   header('Location: ./erro.php');
+}
+
+$name_adm = $_POST['name_adm'];
+$email_adm = $_POST['email_adm'];
+$UF_adm = $_POST['uf_adm'];
+$since_adm = $_POST['since_adm'];
+$status_adm = $_POST['status_adm'];
+$role_adm = $_POST['role_adm'];
+$picture_adm = $_POST['picture_adm'];
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -108,69 +129,81 @@ include('./includes/currentUserInfos.php');
         <main id="root">
             <div class="head-title">
                 <div class="left">
-                    <h1>Perfil Adm</h1>
+                    <h1>Perfil adm</h1>
                     <ul class="breadcrumb">
                         <li>
                             <a href="#">Painel</a>
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
-                            <a class="active" href="#">Edit</a>
+                            <a class="active" href="#">Home</a>
                         </li>
                     </ul>
                 </div>
             </div>
-            <form class="userInfos_edit" method="post" action="./actions/up_currentUserProfile.php"
-                enctype="multipart/form-data">
+            <ul class="userInfos">
                 <li>
-                    <div id="ProfileImages">
-                        <img src="<?php echo $picture; ?>">
-                        <img id="previewImage" src="<?php echo $picture; ?>" alt="Imagem de perfil">
+                    <div class="editPersonalInfos">
+                        <!--<a href="./ChangePassword.php"><i class='bx bxs-key' title="Atualizar senha"></i></a>
+                            <a href="./profileEdit.php"> <i class='bx bx-edit'
+                                    title="Editar Informações do perfil"></i></a>-->
                     </div>
-                    <input type="file" name="picture" id="pictureInput" accept="image/*">
-                    <div class=" text">
+                    <img src=<?php echo "$picture_adm" ?>>
+                    <div class="text">
                         <p>
-                            <i class='bx bx-user'></i>Nome: <br>
-                            <input type="text" name="name" value="<?php echo htmlspecialchars($name); ?>">
+                            <i class='bx bx-user'></i>Nome: <br><span><?php echo "$name_adm" ?></span>
                         </p>
                         <p>
-                            <i class='bx bx-envelope'></i>Email:<br>
-                            <input type="email" name="email" value="<?php echo htmlspecialchars($email); ?>">
+                            <i class='bx bx-envelope'></i>Email:<br><span><?php echo "$email_adm" ?></span>
                         </p>
                         <p>
-                            <i class='bx bxs-map-alt'></i>UF:<br>
-                            <input type="text" name="UF" value="<?php echo htmlspecialchars($UF); ?>">
+                            <i class='bx bxs-map-alt'></i>UF:<br><span><?php echo "$UF_adm" ?></span>
                         </p>
-                        <p>
-                            <i class='bx bxs-calendar'></i>Desde:<br>
-                            <input type="date" name="since" disabled value="<?php echo htmlspecialchars($since); ?>">
-                        </p>
+                        <P>
+                            <i class='bx bxs-calendar'></i>Desde:<br><span><?php echo "$since_adm" ?></span>
+                        </P>
                         <p>
                             <i class='bx bx-station'></i>Status:<br>
-                            <select name="status">
-                                <option value="1" <?php if ($status == 'ativo') echo 'selected'; ?>>Ativo
-                                </option>
-                                <option value="0" <?php if ($status == 'desativo') echo 'selected'; ?>>Inativo
-                                </option>
-                            </select>
+                            <span class="<?php echo htmlspecialchars($status); ?>_status">
+                                <?php echo htmlspecialchars($status); ?>
+                            </span>
                         </p>
-                        <p>
+                        <P>
                             <i class='bx bx-briefcase'></i>Cargo:<br>
-                            <select name="roles_id">
-                                <option value="0" <?php if ($roles_id == 'MOD') echo 'selected'; ?>>Mod</option>
-                                <option value="1" <?php if ($roles_id == 'ADM') echo 'selected'; ?>>Adm</option>
-                            </select>
-                        </p>
-                        <button type="submit">CONCLUIR EDIÇÃO</button>
+                            <span class="<?php echo "$roles_id" ?>_cargo"><?php echo "$role_adm" ?>
+                            </span>
+                        </P>
                     </div>
                 </li>
-            </form>
-
+            </ul>
+            <ul class="box-info">
+                <li>
+                    <i class='bx bxs-layer'></i>
+                    <span class="text">
+                        <h3>0</h3>
+                        <p>Questões</p>
+                    </span>
+                </li>
+                <li>
+                    <i class='bx bxs-group'></i>
+                    <span class="text">
+                        <h3>0</h3>
+                        <p>Usuários Assinantes</p>
+                    </span>
+                </li>
+                <li>
+                    <i class='bx bxs-message-dots'></i>
+                    <span class="text">
+                        <h3>0</h3>
+                        <p>Mensagens</p>
+                    </span>
+                </li>
+            </ul>
             </ </main>
             <!-- MAIN -->
     </section>
     <!-- CONTENT -->
-    <script src="./scripts/editUserProfile.js"></script>
+
     <script src="./scripts/system.js"></script>
     <script type="module" src="./scripts/spa.js"></script>
 </body>

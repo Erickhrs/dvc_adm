@@ -862,3 +862,7 @@ select:focus {
     border-radius: 110px;
     color: white!important;
 }
+
+.viewIcon{
+	border: none!important;
+}

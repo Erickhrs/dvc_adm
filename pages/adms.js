@@ -5,13 +5,16 @@ export default () => {
         <div class="left">
             <h1>Usuários</h1>
             <ul class="breadcrumb">
-                <li>
-                    <a href="#">Painel</a>
-                </li>
-                <li><i class='bx bx-chevron-right'></i></li>
-                <li>
-                    <a class="active" href="#">Home</a>
-                </li>
+              <li>
+                            <a href="#">Painel</a>
+                        </li>
+                        <li><i class='bx bx-chevron-right'></i></li>
+                        <li>
+                            <a href="#users">Usuários</a>
+                        </li><i class='bx bx-chevron-right'></i></li>
+                          <li>
+                            <a class="active" href="#adms">Administradores</a>
+                        </li>
             </ul>
         </div>
     </div>

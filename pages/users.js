@@ -10,7 +10,10 @@ export default () =>{
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
-                            <a class="active" href="#">Home</a>
+                            <a href="#users">Usuários</a>
+                        </li><i class='bx bx-chevron-right'></i></li>
+                          <li>
+                            <a class="active" href="#users">Assinantes</a>
                         </li>
                     </ul>
                 </div>

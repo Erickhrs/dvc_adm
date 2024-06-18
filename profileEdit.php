@@ -108,14 +108,17 @@ include('./includes/currentUserInfos.php');
         <main id="root">
             <div class="head-title">
                 <div class="left">
-                    <h1>Perfil Adm</h1>
+                    <h1>Editar Informaçoes</h1>
                     <ul class="breadcrumb">
                         <li>
                             <a href="#">Painel</a>
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
-                            <a class="active" href="#">Edit</a>
+                            <a class="active" href="./profile.php">Perfil</a>
+                        </li><i class='bx bx-chevron-right'></i></li>
+                        <li>
+                            <a class="active" href="./profileEdit.php">Editar Informações</a>
                         </li>
                     </ul>
                 </div>

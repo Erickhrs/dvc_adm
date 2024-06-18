@@ -98,10 +98,19 @@ export default () => {
                                 <button type="submit" class="bx bx-show viewIcon" name="formButton"></button>
                             </form>
                         </td>
-                         <form action="./admProfile.php" method="post">
-                                <input type="hidden" name="adm_id" value="${user.ID}">
+                         <td>
+                              <form action="./admProfileEdit.php" method="post">
+                                 <input type="hidden" name="id_adm" value="${user.ID}">
+                                    <input type="hidden" name="name_adm" value="${user.name}">
+                                    <input type="hidden" name="email_adm" value="${user.email}">
+                                    <input type="hidden" name="uf_adm" value="${user.UF}">
+                                    <input type="hidden" name="picture_adm" value="${user.picture}">
+                                    <input type="hidden" name="since_adm" value="${user.since}">
+                                    <input type="hidden" name="status_adm" value="${user.status}">
+                                    <input type="hidden" name="role_adm" value="${user.roles_id}">
                                 <button type="submit" class="bx bx-edit editIcon" name="formButton"></button>
-                            </form>
+                                </form>
+                         </td>
                     `;
                     tbody.appendChild(tr);
                 });

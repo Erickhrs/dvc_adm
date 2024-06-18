@@ -4,6 +4,7 @@ include('./includes/protect.php');
 include('./includes/currentUserInfos.php');
 
 if (isset($_POST['name_adm'])) {
+    $id_adm = $_POST['id_adm'];
     $name_adm = $_POST['name_adm'];
     $email_adm = $_POST['email_adm'];
     $UF_adm = $_POST['uf_adm'];
@@ -121,81 +122,71 @@ if (isset($_POST['name_adm'])) {
         <main id="root">
             <div class="head-title">
                 <div class="left">
-                    <h1>Perfil adm</h1>
+                    <h1>Perfil Adm</h1>
                     <ul class="breadcrumb">
                         <li>
                             <a href="#">Painel</a>
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
-                            <a class="active" href="#">Home</a>
+                            <a class="active" href="#">Edit</a>
                         </li>
                     </ul>
                 </div>
             </div>
-            <ul class="userInfos">
+            <form class="userInfos_edit" method="post" action="./actions/up_admUserProfile.php"
+                enctype="multipart/form-data">
                 <li>
-                    <div class="editPersonalInfos">
-                        <!--<a href="./ChangePassword.php"><i class='bx bxs-key' title="Atualizar senha"></i></a>
-                            <a href="./profileEdit.php"> <i class='bx bx-edit'
-                                    title="Editar Informações do perfil"></i></a>-->
+                    <div id="ProfileImages">
+                        <img src="<?php echo $picture_adm; ?>">
+                        <img id="previewImage" src="<?php echo $picture_adm; ?>" alt="Imagem de perfil">
                     </div>
-                    <img src=<?php echo "$picture_adm" ?>>
-                    <div class="text">
+                    <input type="file" name="picture" id="pictureInput" accept="image/*">
+                    <div class=" text">
                         <p>
-                            <i class='bx bx-user'></i>Nome: <br><span><?php echo "$name_adm" ?></span>
+                            <i class='bx bx-user'></i>Nome: <br>
+                            <input type="text" name="name" value="<?php echo htmlspecialchars($name_adm); ?>">
                         </p>
                         <p>
-                            <i class='bx bx-envelope'></i>Email:<br><span><?php echo "$email_adm" ?></span>
+                            <i class='bx bx-envelope'></i>Email:<br>
+                            <input type="email" name="email" value="<?php echo htmlspecialchars($email_adm); ?>">
                         </p>
                         <p>
-                            <i class='bx bxs-map-alt'></i>UF:<br><span><?php echo "$UF_adm" ?></span>
+                            <i class='bx bxs-map-alt'></i>UF:<br>
+                            <input type="text" name="UF" value="<?php echo htmlspecialchars($UF_adm); ?>">
                         </p>
-                        <P>
-                            <i class='bx bxs-calendar'></i>Desde:<br><span><?php echo "$since_adm" ?></span>
-                        </P>
+                        <p>
+                            <i class='bx bxs-calendar'></i>Desde:<br>
+                            <input type="date" name="since" disabled
+                                value="<?php echo htmlspecialchars($since_adm); ?>">
+                        </p>
                         <p>
                             <i class='bx bx-station'></i>Status:<br>
-                            <span class="<?php echo htmlspecialchars($status); ?>_status">
-                                <?php echo htmlspecialchars($status); ?>
-                            </span>
+                            <select name="status">
+                                <option value="1" <?php if ($status_adm == 'ativo') echo 'selected'; ?>>Ativo
+                                </option>
+                                <option value="0" <?php if ($status_adm == 'desativo') echo 'selected'; ?>>Inativo
+                                </option>
+                            </select>
                         </p>
-                        <P>
+                        <p>
                             <i class='bx bx-briefcase'></i>Cargo:<br>
-                            <span class="<?php echo "$roles_id" ?>_cargo"><?php echo "$role_adm" ?>
-                            </span>
-                        </P>
+                            <select name="roles_id">
+                                <option value="0" <?php if ($role_adm == 'MOD') echo 'selected'; ?>>Mod</option>
+                                <option value="1" <?php if ($role_adm== 'ADM') echo 'selected'; ?>>Adm</option>
+                            </select>
+                        </p>
+                        <input type="hidden" name="adm_id" value="<?php echo htmlspecialchars($id_adm); ?>">
+                        <button type="submit">CONCLUIR EDIÇÃO</button>
                     </div>
                 </li>
-            </ul>
-            <ul class="box-info">
-                <li>
-                    <i class='bx bxs-layer'></i>
-                    <span class="text">
-                        <h3>0</h3>
-                        <p>Questões</p>
-                    </span>
-                </li>
-                <li>
-                    <i class='bx bxs-group'></i>
-                    <span class="text">
-                        <h3>0</h3>
-                        <p>Usuários Assinantes</p>
-                    </span>
-                </li>
-                <li>
-                    <i class='bx bxs-message-dots'></i>
-                    <span class="text">
-                        <h3>0</h3>
-                        <p>Mensagens</p>
-                    </span>
-                </li>
-            </ul>
+            </form>
+
             </ </main>
             <!-- MAIN -->
     </section>
     <!-- CONTENT -->
-
+    <script src="./scripts/editUserProfile.js"></script>
     <script src="./scripts/system.js"></script>
     <script type="module" src="./scripts/spa.js"></script>
 </body>

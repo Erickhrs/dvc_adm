@@ -72,7 +72,7 @@ if(!isset($_SESSION['id'])) {
         <body>
             <div class=\"container\">
                 <div class=\"alert alert-danger\">
-                    <h2>Você não pode acessar esta página porque não está logado</h2>.<p><a class=\"link\" href=\"../index.php\">Entrar</a></p>
+                    <h2>Você não pode acessar esta página porque não está logado</h2>.<p><a class=\"link\" href=\"./index.php\">Entrar</a></p>
                 </div>
             </div>
         </body>

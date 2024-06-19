@@ -507,6 +507,7 @@ body {
 
 #content main .table-data .order table td {
 	width: fit-content;
+	cursor: pointer;
 }
 #content main .table-data .order table .ADM_cargo, #content main .table-data .order table .MOD_cargo {
 	padding: 0px 10px 0px 10px!important;
@@ -863,6 +864,6 @@ select:focus {
     color: white!important;
 }
 
-.viewIcon{
+.viewIcon, .editIcon{
 	border: none!important;
 }

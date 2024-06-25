@@ -46,8 +46,7 @@ if ($stmt = $mysqli->prepare($sql)) {
     $stmt->bind_param("ssssiii", $name_up, $email_up, $UF_up, $path, $status_up, $roles_id_up, $adm_id);
     $stmt->execute();
     $stmt->close();
-    session_destroy();
-    header("Location: ../index.php");
+    header("Location: ../system.php");
 } else {
    header("Location: ../error.php");
 }

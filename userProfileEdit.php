@@ -2,8 +2,10 @@
 include('./includes/connection.php');
 include('./includes/protect.php');
 include('./includes/currentUserInfos.php');
+
 if (isset($_POST['name_user'])) {
     $name_user = $_POST['name_user'];
+    $id_user = $_POST['id_user'];
     $email_user = $_POST['email_user'];
     $UF_user = $_POST['uf_user'];
     $since_user = $_POST['since_user'];
@@ -17,15 +19,14 @@ if (isset($_POST['name_user'])) {
     $city_user = $_POST['city_user'];
     $birth_user = $_POST['birth_user'];
     $cep_user = $_POST['cep_user'];
-    if ($cpf_user == "null") {
-        $idUserCode = $cnpj_user;
-    } elseif ($cnpj_user == "null") {
-        $idUserCode = $cpf_user;
-    }
 } else {
     header('Location: ./erro.php');
 }
-
+if ($cpf_user == "null") {
+    $idUserCode = $cnpj_user;
+} elseif ($cnpj_user == "null") {
+    $idUserCode = $cpf_user;
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -132,88 +133,85 @@ if (isset($_POST['name_user'])) {
         <main id="root">
             <div class="head-title">
                 <div class="left">
-                    <h1><?php echo "$name_user" ?></h1>
+                    <h1>Perfil Adm</h1>
                     <ul class="breadcrumb">
                         <li>
                             <a href="#">Painel</a>
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
-                            <a class="active" href="#">Home</a>
+                            <a class="active" href="#">Edit</a>
                         </li>
                     </ul>
                 </div>
             </div>
-            <ul class="userInfos">
+            <form class="userInfos_edit" method="post" action="./actions/up_userProfile.php"
+                enctype="multipart/form-data">
                 <li>
-                    <div class="editPersonalInfos">
-                        <!--<a href="./ChangePassword.php"><i class='bx bxs-key' title="Atualizar senha"></i></a>
-                            <a href="./profileEdit.php"> <i class='bx bx-edit'
-                                    title="Editar Informações do perfil"></i></a>-->
+                    <div id="ProfileImages">
+                        <img src="<?php echo $picture_user; ?>">
                     </div>
-                    <img src=<?php echo "$picture_user" ?>>
-                    <div class="text">
+                    <div class=" text">
                         <p>
-                            <i class='bx bx-user'></i>Nome: <br><span><?php echo "$name_user" ?></span>
+                            <i class='bx bx-user'></i>Nome: <br>
+                            <input type="text" name="name" value="<?php echo htmlspecialchars($name_user); ?>">
                         </p>
                         <p>
-                            <i class='bx bx-envelope'></i>Email:<br><span><?php echo "$email_user" ?></span>
+                            <i class='bx bx-envelope'></i>Email:<br>
+                            <input type="email" name="email" value="<?php echo htmlspecialchars($email_user); ?>">
                         </p>
                         <p>
-                            <i class='bx bxs-map-alt'></i>UF:<br><span><?php echo "$UF_user" ?></span>
+                            <i class='bx bxs-phone'></i>Telefone:<br>
+                            <input type="text" name="phone" value="<?php echo htmlspecialchars($phone_user); ?>">
                         </p>
-                        <P>
-                            <i class='bx bxs-calendar'></i>Desde:<br><span><?php echo "$since_user" ?></span>
-                        </P>
+                        <p>
+                            <i class='bx bxs-id-card'></i>ID:<br>
+                            <input type="text" disabled name="idUserCode"
+                                value="<?php echo htmlspecialchars($idUserCode); ?>">
+                        </p>
+                        <p>
+                            <i class='bx bx-map-pin'></i>Endereço:<br>
+                            <input type="text" name="address" value="<?php echo htmlspecialchars($address_user); ?>">
+                        </p>
+                        <p>
+                            <i class='bx bx-map-pin'></i>Bairro:<br>
+                            <input type="text" name="district" value="<?php echo htmlspecialchars($district_user); ?>">
+                        </p>
+                        <p>
+                            <i class='bx bx-map-pin'></i>Cidade:<br>
+                            <input type="text" name="city" value="<?php echo htmlspecialchars($city_user); ?>">
+                        </p>
+                        <p>
+                            <i class='bx bxs-map-alt'></i>UF:<br>
+                            <input type="text" name="UF" value="<?php echo htmlspecialchars($UF_user); ?>">
+                        </p>
+                        <p>
+                            <i class='bx bx-building-house'></i>CEP:<br>
+                            <input type="text" name="cep" value="<?php echo htmlspecialchars($cep_user); ?>">
+                        </p>
+                        <p>
+                            <i class='bx bxs-cake'></i>Nascimento:<br>
+                            <input type="text" name="birth" value="<?php echo htmlspecialchars($birth_user); ?>">
+                        </p>
                         <p>
                             <i class='bx bx-station'></i>Status:<br>
-                            <span class="<?php echo htmlspecialchars($status); ?>_status">
-                                <?php echo htmlspecialchars($status); ?>
-                            </span>
+                            <select name="status">
+                                <option value="1" <?php if ($status_user == 'ativo') echo 'selected'; ?>>Ativo
+                                </option>
+                                <option value="0" <?php if ($status_user == 'desativo') echo 'selected'; ?>>Inativo
+                                </option>
+                            </select>
                         </p>
+                        <input name="user_id" value="<?php echo htmlspecialchars($id_user); ?>" type="hidden">
+                        <button type="submit">CONCLUIR EDIÇÃO</button>
                     </div>
-                    <div class="text">
-                        <p>
-                            <i class='bx bxs-phone'></i></i>Telefone: <br><span><?php echo "$phone_user" ?></span>
-                        </p>
-                        <p>
-                            <i class='bx bx-id-card'></i>ID:<br><span><?php echo "$cpf_user" ?></span>
-                        </p>
-                        <p>
-                            <i class='bx bx-map-pin'></i>
-                            Endereço:<br><span><?php echo "$address_user" . " - ". "$district_user". " - "."$city_user" ?></span>
-                        </p>
-                        <P>
-                            <i class='bx bx-building-house'></i>CEP:<br><span><?php echo "$cep_user" ?></span>
-                        </P>
-                        <p>
-                            <i class='bx bx-cake'></i></i>Aniversário: <br><span><?php echo "$birth_user" ?></span>
-                        </p>
-                    </div>
+                </li>
+            </form>
 
-                </li>
-            </ul>
-            <ul class="box-info">
-                <li>
-                    <i class='bx bxs-layer'></i>
-                    <span class="text">
-                        <h3>0</h3>
-                        <p>Questões Realizadas</p>
-                    </span>
-                </li>
-                <li>
-                    <i class='bx bxs-message-dots'></i>
-                    <span class="text">
-                        <h3>0</h3>
-                        <p>Mensagens encaminhadas</p>
-                    </span>
-                </li>
-            </ul>
             </ </main>
             <!-- MAIN -->
     </section>
     <!-- CONTENT -->
-
     <script src="./scripts/system.js"></script>
     <script type="module" src="./scripts/spa.js"></script>
 </body>

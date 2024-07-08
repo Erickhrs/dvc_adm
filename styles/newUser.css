@@ -1,0 +1,100 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--logo-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease-in-out;
+    height: 500px;
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;  
+}
+.container:hover {
+    transform: scale(1.02);
+}
+
+h1 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 15px;
+    color: var(--logo-blue);
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+.section h2 {
+    margin-bottom: 10px;
+    color: var(--logo-blue);
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="password"],
+input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: transform 0.3s ease-in-out;
+}
+input{
+    transform: scale(1.02);
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--light-green);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--logo-green);
+}
+
+#logo{
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+select{
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}

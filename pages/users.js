@@ -42,13 +42,15 @@ export default () => {
                     </span>
                 </li>
             </ul>
-
+            
             <div class="table-data">
                 <div class="order">
                     <div class="head">
                         <h3>Lista de Usuários</h3>
                         <i class='bx bx-search'></i>
                         <i class='bx bx-filter'></i>
+                        <a href="./newUser.php" class="newUserBtn"><i class='bx bx-user-plus' ></i></a>
+                        <a href="#deleteUser" class="deleteUserBtn"><i class='bx bx-user-x'></i></i></a>
                     </div>
                     <div class="userType">
                         <a href="#users" id="usersOption" class="userType-active"><i

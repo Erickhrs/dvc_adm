@@ -14,30 +14,18 @@ include('./includes/protect.php');
 
 <body>
     <div class="container">
-        <h1>Cadastro de Usuário Profissional</h1>
+        <h1>Cadastro de Usuário ADM</h1>
         <img src="./assets/logo.png" alt="logo" id="logo">
-        <form method="post" action="./actions/in_newUser.php" enctype="multipart/form-data">
+        <form method="post" action="./actions/in_newAdm.php" enctype="multipart/form-data">
             <div class="section">
                 <h2>Informações Pessoais</h2>
                 <div class="form-group">
-                    <label for="name"> Nome</label>
+                    <label for="name">Nome</label>
                     <input type="text" id="name" name="name" maxlength="50" minlength="5" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" maxlength="100" minlength="10" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Telefone</label>
-                    <input type="text" id="phone" name="phone" maxlength="25" minlength="11" required>
-                </div>
-                <div class="form-group">
-                    <label for="cpf">CPF</label>
-                    <input type="text" id="cpf" name="cpf" maxlength="11" minlength="11" required>
-                </div>
-                <div class="form-group">
-                    <label for="birth">Data de Nascimento</label>
-                    <input type="date" id="birth" name="birth" required>
                 </div>
                 <div class="form-group">
                     <label for="picture">Foto</label>
@@ -46,18 +34,6 @@ include('./includes/protect.php');
             </div>
             <div class="section">
                 <h2>Endereço</h2>
-                <div class="form-group">
-                    <label for="address">Endereço</label>
-                    <input type="text" id="address" name="address" maxlength="150" required>
-                </div>
-                <div class="form-group">
-                    <label for="district">Bairro</label>
-                    <input type="text" id="district" name="district" maxlength="50" required>
-                </div>
-                <div class="form-group">
-                    <label for="city">Cidade</label>
-                    <input type="text" id="city" name="city" maxlength="50" required>
-                </div>
                 <div class="form-group">
                     <label for="uf">UF</label>
                     <select id="uf" name="uf" required>
@@ -91,10 +67,6 @@ include('./includes/protect.php');
                         <option value="TO">Tocantins</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for="cep" required>CEP</label>
-                    <input type="text" id="cep" name="cep" maxlength="8" minlength="8">
-                </div>
             </div>
             <div class="section">
                 <h2>Outras Informações</h2>
@@ -106,12 +78,19 @@ include('./includes/protect.php');
                     </select>
                 </div>
                 <div class="form-group">
+                    <label for="role">Cargo</label>
+                    <select name="role">
+                        <option value="1">ADMINISTRADOR</option>
+                        <option value="0">MODERADOR</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="since">Desde</label>
                     <input type="text" id="since" name="since" value="<?php echo date('d-m-Y')?>" disabled>
                 </div>
                 <div class="form-group" required>
                     <label for="password">Senha</label>
-                    <input type="text" id="password" name="psw" value="dvc2024" disabled>
+                    <input type="text" id="password" name="psw" value="admdvc@2024" disabled>
                 </div>
             </div>
             <button type="submit">Cadastrar</button>

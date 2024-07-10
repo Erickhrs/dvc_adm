@@ -14,7 +14,7 @@ include('./includes/protect.php');
 
 <body>
     <div class="container">
-        <h1>Cadastro de Usuário Profissional</h1>
+        <h1>Cadastro de Usuário</h1>
         <img src="./assets/logo.png" alt="logo" id="logo">
         <form method="post" action="./actions/in_newUser.php" enctype="multipart/form-data">
             <div class="section">

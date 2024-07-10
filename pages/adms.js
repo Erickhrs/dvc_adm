@@ -49,8 +49,7 @@ export default () => {
                 <h3>Lista de Usuários</h3>
                 <i class='bx bx-search'></i>
                 <i class='bx bx-filter'></i>
-                <a href="./newAdm.php" class="newUserBtn"><i class='bx bx-user-plus' ></i></a>
-                <a href="#deleteUser" class="deleteUserBtn"><i class='bx bx-user-x'></i></i></a>
+                 <a href="./newAdm.php" class="newUserBtn"><i class='bx bx-user-plus' ></i></a>
             </div>
             <div class="userType">
                 <a href="#users" id="usersOption"><i

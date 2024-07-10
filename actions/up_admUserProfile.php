@@ -46,6 +46,7 @@ if ($stmt = $mysqli->prepare($sql)) {
     $stmt->bind_param("ssssiii", $name_up, $email_up, $UF_up, $path, $status_up, $roles_id_up, $adm_id);
     $stmt->execute();
     $stmt->close();
+    newHistoricEvent($_SESSION['id'], "Informações do usuário ".$name_up." - ".$email_up." atualizadas.", date('Y-m-d H:i:s'), 'BAIXA');
     header("Location: ../system.php");
 } else {
    header("Location: ../error.php");

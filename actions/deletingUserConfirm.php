@@ -91,6 +91,7 @@ $email = $_POST['email_user'];
             <p>Nome: <?php echo $name?></p>
         </div>
         <form class="buttons" method="post" action="./deletingUser.php">
+            <input type="hidden" name="name" value="<?php echo $name?>">
             <input type="hidden" name="picture" value="<?php echo $picture?>">
             <input type="hidden" name="email_user" value="<?php echo $email?>">
             <input type="hidden" name="userType" value="<?php echo $type?>">

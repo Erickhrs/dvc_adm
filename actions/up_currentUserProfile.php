@@ -45,6 +45,7 @@ if ($stmt = $mysqli->prepare($sql)) {
     $stmt->bind_param("ssssiii", $name_up, $email_up, $UF_up, $path, $status_up, $roles_id_up, $user_id);
     $stmt->execute();
     $stmt->close();
+    newHistoricEvent($_SESSION['id'], "Atualizou as informações do seu própio perfil.", date('Y-m-d H:i:s'), 'BAIXA');
     session_destroy();
     header("Location: ../index.php");
 } else {

@@ -2,6 +2,7 @@
 include('../includes/connection.php');
 include('../includes/protect.php');
 include('../includes/historic.php');
+$name = $_POST['name'];
 $picture = $_POST['picture'];
 $type = $_POST['userType'];
 $id = $_POST['id_user'];
@@ -17,6 +18,7 @@ if ($type == 'user') {
                 if (unlink($picture)) {
                 }
             }
+            newHistoricEvent($_SESSION['id'], "Usuário ".$name." - ".$email." deletado.", date('Y-m-d H:i:s'), 'ALTA');
             header('Location: ../system.php#users');
         } else {
             header('Location: ../erro.php');
@@ -35,6 +37,7 @@ if ($type == 'user') {
                 if (unlink($picture)) {
                 }
             }
+            newHistoricEvent($_SESSION['id'], "Usuário ".$name." - ".$email." deletado.", date('Y-m-d H:i:s'), 'ALTA');
             header('Location: ../system.php#adms');
         }
     } else {

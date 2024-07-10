@@ -15,6 +15,7 @@ if ($new_password != $confirm_password) {
     $sql = "UPDATE adms set psw = '$hashed_password' WHERE ID = $user_id";
 
     if ($mysqli->query($sql)) {
+        newHistoricEvent($_SESSION['id'], "Atualizou sua senha.", date('Y-m-d H:i:s'), 'BAIXA');
         session_destroy();
         header("Location: ../index.php");
         exit();

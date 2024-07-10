@@ -103,6 +103,7 @@ VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         $stmt->close();
         $mysqli->close();
+        newHistoricEvent($_SESSION['id'], "Usuário ".$name." cadastrado", date('Y-m-d H:i:s'), 'BAIXA');
     }
 }
 ?>

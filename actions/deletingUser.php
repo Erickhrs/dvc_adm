@@ -15,6 +15,7 @@ if ($type == 'user') {
                 if (unlink($picture)) {
                 }
             }
+            header('Location: ../system.php#users');
         } else {
             header('Location: ../erro.php');
         }
@@ -23,7 +24,17 @@ if ($type == 'user') {
     }
 } else if ($type == 'adm') {
     if (isset($id) && isset($email)) {
-        
+        $sql = "SELECT * from adms where email = '$email' and id = $id";
+        $sql_query = $mysqli->query($sql) or die("Falha na execução do código SQL: " . $mysqli->error);
+        if ($sql_query->num_rows == 1) {
+            $sql = "DELETE from adms where email = '$email' and id = $id";
+            $sql_query = $mysqli->query($sql) or die("Falha na execução do código SQL: " . $mysqli->error);
+            if (file_exists($picture)) {
+                if (unlink($picture)) {
+                }
+            }
+            header('Location: ../system.php#adms');
+        }
     } else {
         header('Location: ../erro.php');
     }

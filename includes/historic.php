@@ -1,6 +1,5 @@
 <?php
 include('protect.php');
-
     function newHistoricEvent($adm_id, $description, $when, $importance){
     include('connection.php');
     $sql = "SELECT * FROM adms WHERE ID = $adm_id";

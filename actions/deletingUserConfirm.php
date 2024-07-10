@@ -1,4 +1,6 @@
 <?php
+include('../includes/protect.php');
+
 $picture = "." . $_POST['picture_user'];
 $name = $_POST['name_user'];
 $type = $_POST['userType'];

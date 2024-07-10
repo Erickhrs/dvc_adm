@@ -117,7 +117,8 @@ export default () => {
                          </td>
                          <td>
                              <form action="./actions/deletingUserConfirm.php" method="post">
-                              <input type="hidden" name="userType" value="adm">
+                                    <input type="hidden" name="email_user" value="${user.email}">
+                                    <input type="hidden" name="userType" value="adm">
                                     <input type="hidden" name="picture_user" value="${user.picture}">
                                     <input type="hidden" name="name_user" value="${user.name}">
                                     <input type="hidden" name="id_user" value="${user.ID}">

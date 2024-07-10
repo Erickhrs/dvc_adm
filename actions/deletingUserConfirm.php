@@ -1,9 +1,9 @@
 <?php
 $picture = "." . $_POST['picture_user'];
 $name = $_POST['name_user'];
-if ($_POST['userType'] == 'user') {
-} else {
-}
+$type = $_POST['userType'];
+$user_id = $_POST['id_user'];
+$email = $_POST['email_user'];
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -88,10 +88,14 @@ if ($_POST['userType'] == 'user') {
             <img src="<?php echo $picture?>" alt="Foto do Usuário">
             <p>Nome: <?php echo $name?></p>
         </div>
-        <div class="buttons">
-            <button class="delete-button">Sim, tenho certeza</button>
+        <form class="buttons" method="post" action="./deletingUser.php">
+            <input type="hidden" name="picture" value="<?php echo $picture?>">
+            <input type="hidden" name="email_user" value="<?php echo $email?>">
+            <input type="hidden" name="userType" value="<?php echo $type?>">
+            <input type="hidden" name="id_user" value="<?php echo $user_id?>">
             <button class="deactivate-button">Não, quero apenas desativar o perfil desta pessoa</button>
-        </div>
+            <button class="delete-button" type="submit">Sim, tenho certeza</button>
+        </form>
     </div>
 </body>
 

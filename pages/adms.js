@@ -115,6 +115,15 @@ export default () => {
                                 <button type="submit" class="bx bx-edit editIcon" name="formButton"></button>
                                 </form>
                          </td>
+                         <td>
+                             <form action="./actions/deletingUserConfirm.php" method="post">
+                              <input type="hidden" name="userType" value="adm">
+                                    <input type="hidden" name="picture_user" value="${user.picture}">
+                                    <input type="hidden" name="name_user" value="${user.name}">
+                                    <input type="hidden" name="id_user" value="${user.ID}">
+                                  <button type="submit" class="bx bx-trash" name="formButton" style="border: none; cursor:pointer"></button>
+                            </form>
+                            </td>
                     `;
                     tbody.appendChild(tr);
                 });

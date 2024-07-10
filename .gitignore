@@ -28,4 +28,4 @@ Thumbs.db
 
 #ignore files
 /uploads/
-/includes/
+/includes/connection.php

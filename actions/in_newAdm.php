@@ -1,6 +1,7 @@
 <?php
 include('../includes/connection.php');
 include('../includes/protect.php');
+include('../includes/historic.php');
 $name = $_POST['name'];
 $email = $_POST['email'];
 $UF = $_POST['uf'];
@@ -78,6 +79,7 @@ VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         $stmt->close();
         $mysqli->close();
+        newHistoricEvent($_SESSION['id'], "Usuário ".$name." cadastrado", date('Y-m-d H:i:s'), 'ALTA');
     }
 }
 ?>

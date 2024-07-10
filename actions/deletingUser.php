@@ -1,6 +1,7 @@
 <?php
 include('../includes/connection.php');
 include('../includes/protect.php');
+include('../includes/historic.php');
 $picture = $_POST['picture'];
 $type = $_POST['userType'];
 $id = $_POST['id_user'];

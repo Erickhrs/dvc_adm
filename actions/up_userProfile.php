@@ -20,12 +20,12 @@ if ($stmt = $mysqli->prepare($sql)) {
     $stmt->bind_param("ssssssssiii", $name_up, $email_up, $UF_up, $phone_up, $address_up, $district_up, $city_up, $birth_up, $cep_up, $status_up, $user_id);
     $stmt->execute();
     $stmt->close();
-    newHistoricEvent($_SESSION['id'], "Atualizou as informações do usuário: ".$name_Up." - ".$email_up.".", date('Y-m-d H:i:s'), 'BAIXA');
+    newHistoryEvent($_SESSION['id'], "Atualizou as informações do usuário: " . $name_Up . " - " . $email_up . ".", date('Y-m-d H:i:s'), 'BAIXA');
     header("Location: ../system.php");
 } else {
-   header("Location: ../error.php");
+    header("Location: ../error.php");
 }
-$mysqli->close();?>
+$mysqli->close(); ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -34,38 +34,38 @@ $mysqli->close();?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loading Screen</title>
     <style>
-    body,
-    html {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #1d3969;
-        color: white;
-        font-family: Arial, sans-serif;
-    }
-
-    .loader {
-        border: 16px solid #f3f3f3;
-        border-top: 16px solid #3498db;
-        border-radius: 50%;
-        width: 120px;
-        height: 120px;
-        animation: spin 2s linear infinite;
-    }
-
-    @keyframes spin {
-        0% {
-            transform: rotate(0deg);
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #1d3969;
+            color: white;
+            font-family: Arial, sans-serif;
         }
 
-        100% {
-            transform: rotate(360deg);
+        .loader {
+            border: 16px solid #f3f3f3;
+            border-top: 16px solid #3498db;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
         }
-    }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
     </style>
 </head>
 

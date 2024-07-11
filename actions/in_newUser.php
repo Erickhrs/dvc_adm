@@ -103,7 +103,7 @@ VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         $stmt->close();
         $mysqli->close();
-        newHistoricEvent($_SESSION['id'], "Usuário ".$name." cadastrado", date('Y-m-d H:i:s'), 'BAIXA');
+        newHistoryEvent($_SESSION['id'], "Usuário " . $name . " cadastrado", date('Y-m-d H:i:s'), 'BAIXA');
     }
 }
 ?>
@@ -116,69 +116,69 @@ VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f9f9f9;
-        margin: 0;
-        padding: 0;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
 
-    .container {
-        max-width: 800px;
-        margin: 50px auto;
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-    .alert {
-        padding: 15px;
-        border-radius: 4px;
-        margin-bottom: 20px;
-    }
+        .alert {
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
 
-    .alert-danger {
-        background-color: #f8d7da;
-        color: #721c24;
-        border: 1px solid #f5c6cb;
-    }
+        .alert-danger {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
 
-    .inDone {
-        background-color: #adeaa9;
-        color: #000000;
-        border: 1px solid #49d623;
-    }
+        .inDone {
+            background-color: #adeaa9;
+            color: #000000;
+            border: 1px solid #49d623;
+        }
 
-    .alert a {
-        color: #721c24;
-        text-decoration: underline;
-    }
+        .alert a {
+            color: #721c24;
+            text-decoration: underline;
+        }
 
-    .alert a:hover {
-        color: #721c24;
-    }
+        .alert a:hover {
+            color: #721c24;
+        }
 
-    .link {
-        text-decoration: none;
-        color: #007bff;
-    }
+        .link {
+            text-decoration: none;
+            color: #007bff;
+        }
 
-    .link:hover {
-        text-decoration: underline;
-    }
+        .link:hover {
+            text-decoration: underline;
+        }
 
-    p {
-        margin-left: auto;
-        margin-right: auto;
-        width: fit-content;
-    }
+        p {
+            margin-left: auto;
+            margin-right: auto;
+            width: fit-content;
+        }
 
-    h2 {
-        margin-left: auto;
-        margin-right: auto;
-        width: fit-content;
-    }
+        h2 {
+            margin-left: auto;
+            margin-right: auto;
+            width: fit-content;
+        }
     </style>
 </head>
 

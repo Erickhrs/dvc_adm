@@ -34,9 +34,8 @@ if (isset($_FILES['picture']) && $_FILES['picture']['error'] === UPLOAD_ERR_OK) 
     if (!move_uploaded_file($picture_up["tmp_name"], $destiny)) {
         die("Falha ao mover o arquivo.");
     }
-} else{
+} else {
     $path = $picture;
-
 }
 
 
@@ -46,10 +45,10 @@ if ($stmt = $mysqli->prepare($sql)) {
     $stmt->bind_param("ssssiii", $name_up, $email_up, $UF_up, $path, $status_up, $roles_id_up, $adm_id);
     $stmt->execute();
     $stmt->close();
-    newHistoricEvent($_SESSION['id'], "Informações do usuário ".$name_up." - ".$email_up." atualizadas.", date('Y-m-d H:i:s'), 'BAIXA');
+    newHistoryEvent($_SESSION['id'], "Informações do usuário " . $name_up . " - " . $email_up . " atualizadas.", date('Y-m-d H:i:s'), 'BAIXA');
     header("Location: ../system.php");
 } else {
-   header("Location: ../error.php");
+    header("Location: ../error.php");
 }
 $mysqli->close();
 ?>
@@ -61,38 +60,38 @@ $mysqli->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loading Screen</title>
     <style>
-    body,
-    html {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #1d3969;
-        color: white;
-        font-family: Arial, sans-serif;
-    }
-
-    .loader {
-        border: 16px solid #f3f3f3;
-        border-top: 16px solid #3498db;
-        border-radius: 50%;
-        width: 120px;
-        height: 120px;
-        animation: spin 2s linear infinite;
-    }
-
-    @keyframes spin {
-        0% {
-            transform: rotate(0deg);
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #1d3969;
+            color: white;
+            font-family: Arial, sans-serif;
         }
 
-        100% {
-            transform: rotate(360deg);
+        .loader {
+            border: 16px solid #f3f3f3;
+            border-top: 16px solid #3498db;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
         }
-    }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
     </style>
 </head>
 

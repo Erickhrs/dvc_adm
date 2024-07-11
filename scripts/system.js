@@ -75,5 +75,30 @@ switchMode.addEventListener('change', function () {
 })
 
 
+function confirmCleanHistory(event) {
+	event.preventDefault();
+
+	const confirmacao1 = confirm("Você realmente deseja limpar o histórico?");
+  
+	if (confirmacao1) {
+	  const confirmacao2 = confirm("Tem certeza? Essa ação não pode ser desfeita.");
+  
+	  if (confirmacao2) {
+		const confirmacao3 = confirm("Última chance! Você está absolutamente certo de que deseja limpar o histórico?");
+		
+		if (confirmacao3) {
+		  console.log("sim");
+		} else {
+		  console.log("não");
+		}
+	  } else {
+		console.log("não");
+	  }
+	} else {
+	  console.log("não");
+	}
+  }
+  
+  
 
 

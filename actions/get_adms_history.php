@@ -6,7 +6,7 @@ if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 }
 
-$sql = "SELECT adms_ID, description, occurred_at, importance FROM adms_history";
+$sql = "SELECT adms_ID, description, occurred_at, importance FROM adms_history ORDER BY occurred_at DESC";
 $result = $mysqli->query($sql);
 
 $history = array();

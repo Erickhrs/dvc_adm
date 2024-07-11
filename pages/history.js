@@ -1,4 +1,4 @@
-export default () =>{
+export default () => {
     const container = document.createElement('div');
     const template = `<div class="head-title">
     <div class="left">
@@ -33,16 +33,38 @@ export default () =>{
                                 <th>Nível</th>
                             </tr>
                         </thead>
-                         <tbody id="admsTableBody"><tr>
-                    <td><img src="./uploads/userTeste.jpg"><p>Clóvis</p></td>
-                    <td>2024-06-16</td>
-                    <td class="ativo_status">ativo</td>
-                    <td>undefined</td>
+                         <tbody id="TableBody">
+                        <tr>
+                         <td colspan="4">Carregando...</td>
+                        </tr>
                     </tbody>
                     </table>
                 </div>
             </div>
 `
+fetch('./actions/get_adms_history.php').then(response => response.json()).then(data=>{
+    const tbody = document.getElementById('TableBody');
+    tbody.innerHTML = '';
+    if (data.length > 0) {
+        data.forEach(history => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+            <td>${history.adms_ID}</td>
+            <td>${history.description}</td>
+            <td>${history.occurred_at}</td>
+            <td><span class="${history.importance}_importance">${history.importance}</td></span>
+            `;
+            tbody.appendChild(tr);
+        });
+    } else {
+        tbody.innerHTML = '<tr><td colspan="4">Nenhum registro encontrado</td></tr>';
+    }
+}).catch(error=>{
+    console.error('erro:',error)
+    const tbody = document.getElementById('admsTableBody');
+    tbody.innerHTML = '<tr><td colspan="4">Erro ao carregar os dados.</td></tr>';
+})
+
 
     container.innerHTML = template;
     return container;

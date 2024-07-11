@@ -870,3 +870,31 @@ select:focus {
 .viewIcon, .editIcon{
 	border: none!important;
 }
+
+.ALTA_importance{
+	background-color: red;
+    text-align: center;
+    color: white;
+    border-radius: 90px;
+    font-weight: 600;
+}
+.MÉDIA_importance{
+	background-color: orange;
+	text-align: center;
+	color: white;
+	border-radius: 90px;
+	font-weight: 600;
+}
+.BAIXA_importance{
+	background-color:cornflowerblue;
+	text-align: center;
+	color: white;
+	border-radius: 90px;
+	font-weight: 600;
+}
+@media screen and (min-width: 775px){
+	td, th{
+		text-align: center!important;
+		padding: 20px;
+	}
+}

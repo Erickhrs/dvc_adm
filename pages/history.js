@@ -49,7 +49,7 @@ fetch('./actions/get_adms_history.php').then(response => response.json()).then(d
         data.forEach(history => {
             const tr = document.createElement('tr');
             tr.innerHTML = `
-            <td>${history.adms_ID}</td>
+            <td><img src="${history.picture}"><p>${history.name}</p></td>
             <td>${history.description}</td>
             <td>${history.occurred_at}</td>
             <td><span class="${history.importance}_importance">${history.importance}</td></span>

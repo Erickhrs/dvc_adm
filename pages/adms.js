@@ -88,7 +88,7 @@ export default () => {
                         <td><img src="${user.picture}"><p>${user.name}</p></td>
                         <td>${user.since}</td>
                         <td class="${user.status}_status">${user.status}</td>
-                        <td class="${user.roles_id}_cargo">${user.roles_id}</td>
+                        <td><span class="${user.roles_id}_cargo">${user.roles_id}</span></td>
                          <td>
                             <form action="./admProfile.php" method="post">
                                     <input type="hidden" name="id_adm" value="${user.ID}">

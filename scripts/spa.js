@@ -6,6 +6,8 @@ import users from "../pages/users.js"
 import history from "../pages/history.js"
 import settings from "../pages/settings.js"
 import adms from "../pages/adms.js"
+import newQuestion from "../pages/newQuestion.js"
+
 const init = () => {
     window.addEventListener("hashchange", () => {
         main.innerHTML = ""
@@ -37,6 +39,9 @@ const init = () => {
                 break;
             case "#adms":
                 main.appendChild(adms());
+                break;
+            case "#newQuestion":
+                main.appendChild(newQuestion());
                 break;
         }
     })

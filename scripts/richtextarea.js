@@ -1,7 +1,8 @@
 tinymce.init({
-    selector: 'textarea',
+    selector: 'textarea.question',
     plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss markdown',
     toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+    menubar: false,
     tinycomments_mode: 'embedded',
     tinycomments_author: 'Author name',
     mergetags_list: [{
@@ -15,4 +16,16 @@ tinymce.init({
     ],
     ai_request: (request, respondWith) => respondWith.string(() => Promise.reject(
         "See docs to implement AI Assistant")),
+});
+tinymce.init({
+    selector: 'textarea.question_option',
+    toolbar: 'undo redo | bold italic underline strikethrough | forecolor | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+    menubar: false,
+    height: 200,
+});
+tinymce.init({
+    selector: 'textarea.related_contents',
+    toolbar: 'undo redo | bold italic underline strikethrough | forecolor | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+    menubar: false,
+    height: 250,
 });

@@ -106,72 +106,7 @@ include('./includes/currentUserInfos.php');
 
         <!-- MAIN -->
         <main id="root">
-            <form action="./actions/in_question.php" method="post">
-                <textarea id="question" name="question" rows="4" cols="50"
-                    placeholder="Escreva a questão aqui..."></textarea><br>
-                <label for="related">Conteudos Relacionados</label>
-                <input type="text" name="related" style="width: 100%;">
-                <div id="aboutQuestions" style="display: flex!important; flex-wrap: wrap!important;">
-                    <input type="text" name="nextId" id="nextId" disabled placeholder="#13" value="#13"
-                        style="text-align: center;">
-                    <select id="ano" name="ano">
-                        <option value="">Ano da questão</option>
-                        <script>
-                        for (let ano = 1980; ano <= 2030; ano++) {
-                            document.write(`<option value="${ano}">${ano}</option>`);
-                        }
-                        </script>
-                    </select>
-                    <input type="text" name="keys" placeholder="Palavras chaves">
 
-                    <select>
-                        <?php
-                        include_once('./actions/get_disciplines.php');
-                        ?>
-                    </select>
-                    <select>
-                        <?php
-                        include_once('./actions/get_subjects.php');
-                        ?>
-                    </select>
-                    <select>
-                        <?php
-                        include_once('./actions/get_bancas.php');
-                        ?>
-                    </select>
-                    <select>
-                        <?php
-                        include_once('./actions/get_job_roles.php');
-                        ?>
-                    </select>
-                    <select name="" id="">
-                        <option value="">Selecione o nível</option>
-                        <option value="">Fundamental</option>
-                        <option value="">Médio</option>
-                        <option value="">Superior</option>
-                    </select>
-                    <select>
-                        <?php
-                        include_once('./actions/get_courses.php');
-                        ?>
-                    </select>
-                    <select name="" id="" disabled>
-                        <option value="">Multipla Escolha</option>
-                    </select>
-                    <select name="" id="">
-                        <option value="">Selecione a dificuldade</option>
-                        <option value="">Fácil</option>
-                        <option value="">Médio</option>
-                        <option value="">Difícil</option>
-                    </select>
-                    <select>
-                        <?php
-                        include_once('./actions/get_functions.php');
-                        ?>
-                    </select>
-                </div>
-                <input type="submit" value="Enviar">
-            </form>
         </main>
         <!-- MAIN -->
     </section>

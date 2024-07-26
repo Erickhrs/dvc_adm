@@ -17,7 +17,7 @@ export default () =>{
 <div class="table-data">
                 <div class="order" style="padding: 20px 0px 0px 20px;">
                     <div class="head">
-                        <a href="#newQuestion" class="newUserBtn"><i class="bx bxs-layer-plus"></i></a>
+                        <a href="./newQuestion.php" class="newUserBtn"><i class="bx bxs-layer-plus"></i></a>
                     </div>
                    
                 </div>

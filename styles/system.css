@@ -846,21 +846,21 @@ select:focus {
 	margin-left: auto;
     margin-right: auto;
 }
-.userType{
+.userType, .questionType{
 	display: flex;
 	grid-gap: 65px;
 	padding-bottom: 20px;
 }
-.userType a{
+.userType a, .questionType a{
 	color: var(--dark-grey);
 }
-.userType i{
+.userType i, .questionType i{
 	margin-right: 8px;
 }
-.userType a:hover{
+.userType a:hover, .questionType:hover{
 	color: var(--logo-blue);
 }
-.userType-active{
+.userType-active, .questionType-active{
 	background-color: var(--logo-blue);
     padding: 1px 10px 1px 10px;
     border-radius: 110px;
@@ -897,6 +897,16 @@ select:focus {
 	font-weight: 600;
 	padding: 5px 10px 5px 10px;
     font-size: 10px;
+}
+#cadbtn{
+	padding:10px;
+	width: 100%;
+	margin-top: 15px;
+	border: none;
+	border-radius: 109px;
+	cursor: pointer;
+	color: white;
+	background-color: var(--logo-green);
 }
 @media screen and (min-width: 775px){
 	td, th{

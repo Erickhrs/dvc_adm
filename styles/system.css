@@ -397,10 +397,17 @@ body {
 	font-weight: 500;
 }
 
-.newUserBtn, .deleteUserBtn {
+.newUserBtn, .deleteUserBtn{
 	color: var(--dark);
 }
 
+.newQuestionBtn{
+	cursor: pointer;color: var(--dark);background: var(--light);padding: 10px;border-radius: 15px;
+}
+.newQuestionBtn:hover{
+	background-color: var(--logo-blue);
+	color: var(--light);
+}
 
 #content main .box-info {
 	display: grid;
@@ -913,4 +920,8 @@ select:focus {
 		text-align: center!important;
 		padding: 20px;
 	}
+}
+.atrContainers{
+	display: flex;
+	gap: 10px;
 }

@@ -106,7 +106,53 @@ include('./includes/currentUserInfos.php');
 
         <!-- MAIN -->
         <main id="root">
+            <div class="head-title">
+                <div class="left">
+                    <h1>Novo Atributo</h1>
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="#">Painel</a>
+                        </li>
+                        <li><i class='bx bx-chevron-right'></i></li>
+                        <li>
+                            <a class="active" href="#">Home</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="table-data">
+                <div class="questionType" style="background: none;">
+                    <a href="" id="" class="userType-active"><i class='bx bx-coin'></i>Disciplina</a>
+                    <a href="" id=""><i class='bx bx-coin'></i>Assunto</a>
+                    <a href="" id=""><i class='bx bx-coin'></i>Banca</a>
+                    <a href="" id=""><i class='bx bx-coin'></i>Cargo</a>
+                    <a href="" id=""><i class='bx bx-coin'></i>Formação</a>
+                    <a href="" id=""><i class='bx bx-coin'></i>Atuação</a>
+                </div>
+            </div>
+            <div class="atrContainers">
+                <div class="order"
+                    style="    border-radius: 20px;background: var(--light);padding: 24px;overflow-x: auto;text-align: center;">
+                    <div class="head">
+                        <h3>Lista de Disciplinas</h3>
+                    </div>
+                    <table>
+                        <?php 
+                        $displayType = 'list';
+                        include_once('./actions/get_disciplines.php');
+                        ?>
+                    </table>
+                </div>
+                <div class="order"
+                    style="    border-radius: 20px;background: var(--light);padding: 24px;overflow-x: auto;    width: 55%;text-align: center;">
+                    <div class="head">
+                        <h3>Adicionar nova disciplina</h3>
+                    </div>
+                    <form action="">
 
+                    </form>
+                </div>
+            </div>
         </main>
         <!-- MAIN -->
     </section>

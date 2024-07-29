@@ -153,6 +153,7 @@ include('./includes/currentUserInfos.php');
 
                     <select>
                         <?php
+                        $displayType = 'option';
                         include_once('./actions/get_disciplines.php');
                         ?>
                     </select>

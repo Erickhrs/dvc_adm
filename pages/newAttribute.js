@@ -149,6 +149,72 @@ export default () =>{
             </thead>
             <tbody>
                 <tr>
+                    <td class="questionTD">
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus sapiente
+                            dignissimos doloribus iste. Nam, eius sed corporis minima vel odio doloremque
+                            soluta numquam! Aliquam, repudiandae perspiciatis. Sunt saepe velit
+                            laudantium.losdjsdbdebfbfhebhfbfhbfh</p>
+                    </td>
+                    <td class="answerTD">
+                        <p>RESPOSTA A</p>
+                    </td>
+                    <td>
+                        <img src="/assets/people.png">
+                        <p>John Doe</p>
+                    </td>
+                    <td>01-10-2021</td>
+                    <td><span class="status completed">Completed</span></td>
+                    <td><i class='bx bx-edit editIcon'></i></td>
+                </tr>
+                <tr>
+                    <td class="questionTD"> Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                        Accusamus sapiente dignissimos doloribus iste. Nam, eius sed corporis minima vel
+                        odio doloremque soluta numquam! Aliquam, repudiandae perspiciatis. Sunt saepe velit
+                        laudantium.losdjsdbdebfbfhebhfbfhbfh</td>
+                    <td class="answerTD">
+                        <p>RESPOSTA A</p>
+                    </td>
+                    <td>
+                        <img src="/assets/people.png">
+                        <p>John Doe</p>
+                    </td>
+                    <td>01-10-2021</td>
+                    <td><span class="status pending">Pending</span></td>
+                    <td><i class='bx bx-edit editIcon'></i></td>
+                </tr>
+                <tr>
+                    <td class="questionTD"> Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                        Accusamus sapiente dignissimos doloribus iste. Nam, eius sed corporis minima vel
+                        odio doloremque soluta numquam! Aliquam, repudiandae perspiciatis. Sunt saepe velit
+                        laudantium.losdjsdbdebfbfhebhfbfhbfh</td>
+                    <td class="answerTD">
+                        <p>RESPOSTA A</p>
+                    </td>
+                    <td>
+                        <img src="/assets/people.png">
+                        <p>John Doe</p>
+                    </td>
+                    <td>01-10-2021</td>
+                    <td><span class="status process">Process</span></td>
+                    <td><i class='bx bx-edit editIcon'></i></td>
+                </tr>
+                <tr>
+                    <td class="questionTD"> Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                        Accusamus sapiente dignissimos doloribus iste. Nam, eius sed corporis minima vel
+                        odio doloremque soluta numquam! Aliquam, repudiandae perspiciatis. Sunt saepe velit
+                        laudantium.losdjsdbdebfbfhebhfbfhbfh</td>
+                    <td class="answerTD">
+                        <p>RESPOSTA A</p>
+                    </td>
+                    <td>
+                        <img src="/assets/people.png">
+                        <p>John Doe</p>
+                    </td>
+                    <td>01-10-2021</td>
+                    <td><span class="status pending">Pending</span></td>
+                    <td><i class='bx bx-edit editIcon'></i></td>
+                </tr>
+                <tr>
                     <td class="questionTD"> Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                         Accusamus sapiente dignissimos doloribus iste. Nam, eius sed corporis minima vel
                         odio doloremque soluta numquam! Aliquam,
@@ -163,9 +229,6 @@ export default () =>{
                     <td><span class="status completed">Completed</span></td>
                     <td><i class='bx bx-edit editIcon'></i></td>
                 </tr>
-                <?php
-                    include_once('./actions/get_questions.php')    
-                ?>
             </tbody>
         </table>
     </div>

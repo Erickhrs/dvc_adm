@@ -106,6 +106,71 @@ include('./includes/currentUserInfos.php');
 
         <!-- MAIN -->
         <main id="root">
+            <div class="head-title">
+                <div class="left">
+                    <h1>Novo Atributo</h1>
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="#">Painel</a>
+                        </li>
+                        <li><i class='bx bx-chevron-right'></i></li>
+                        <li>
+                            <a class="active" href="#">Home</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="table-data">
+                <div class="questionType" style="background: none;">
+                    <a href="./disciplines.php" id=""><i class='bx bx-coin'></i>Disciplina</a>
+                    <a href="./subjects.php" id="" class="userType-active"><i class='bx bx-coin'></i>Assunto</a>
+                    <a href="./bancas.php" id=""><i class='bx bx-coin'></i>Banca</a>
+                    <a href="./jobRoles.php" id=""><i class='bx bx-coin'></i>Cargo</a>
+                    <a href="./courses.php" id=""><i class='bx bx-coin'></i>Formação</a>
+                    <a href="./jobFunctions.php" id=""><i class='bx bx-coin'></i>Atuação</a>
+                </div>
+            </div>
+            <div class="atrContainers">
+                <div class="order"
+                    style="    border-radius: 20px;background: var(--light);padding: 24px;overflow-x: auto;text-align: center;height: 50vh;overflow-y: auto;">
+                    <div class="head">
+                        <h3>Lista de Disciplinas</h3>
+                    </div>
+                    <table>
+                        <?php
+                        $displayType = 'list';
+                        include_once('./actions/get_disciplines.php');
+                        ?>
+                    </table>
+                </div>
+                <div class="order"
+                    style="    border-radius: 20px;background: var(--light);padding: 24px;overflow-x: auto;    width: 55%;text-align: center;    display: flex;flex-direction: column;gap: 18px;">
+                    <div class="head">
+                        <h3>Adicionar nova disciplina</h3>
+                        <span style="font-size: 11px;">Escreva o nome da disciplina</span>
+                    </div>
+                    <form action="./actions/in_discipline.php" method="post">
+                        <input type="text" name="newDiscipline" id="" value="" required>
+                        <button type="submit"
+                            style="    border: none;background-color: greenyellow;height: 30px;width: 30px;border-radius: 25px;cursor: pointer;"><i
+                                class='bx bx-check'></i></button>
+                    </form>
+                    <div class="head">
+                        <h3>Excluir Disciplina</h3>
+                        <span style="font-size: 11px;">Escreva o texto de validação e informe o ID e o nome</span>
+                    </div>
+                    <form action="./actions/deletingDiscipline.php" method="post">
+                        <input type="text" name="validation" id="" value="" placeholder="ESCREVA: eu quero excluir o #"
+                            required>
+                        <input type="text" name="atr_ID" id="" value="" placeholder="0" required>
+                        <input type="text" name="atr_name" id="" value="" placeholder="escreva o nome da disciplina"
+                            required>
+                        <button type="submit"
+                            style="    border: none;background-color: red;height: 30px;width: 30px;border-radius: 25px;cursor: pointer;color:white;"><i
+                                class='bx bx-x'></i></button>
+                    </form>
+                </div>
+            </div>
         </main>
         <!-- MAIN -->
     </section>

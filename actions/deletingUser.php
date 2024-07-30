@@ -18,7 +18,7 @@ if ($type == 'user') {
                 if (unlink($picture)) {
                 }
             }
-            newHistoryEvent($_SESSION['id'], "Usuário " . $name . " - " . $email . " deletado.", date('Y-m-d H:i:s'), 'ALTA');
+            newHistoryEvent($_SESSION['id'], "Deletou o usuário " . $name . " - " . $email, date('Y-m-d H:i:s'), 'ALTA');
             header('Location: ../system.php#users');
         } else {
             header('Location: ../erro.php');
@@ -37,7 +37,7 @@ if ($type == 'user') {
                 if (unlink($picture)) {
                 }
             }
-            newHistoryEvent($_SESSION['id'], "Usuário " . $name . " - " . $email . " deletado.", date('Y-m-d H:i:s'), 'ALTA');
+            newHistoryEvent($_SESSION['id'], "Deletou o usuário " . $name . " - " . $email, date('Y-m-d H:i:s'), 'ALTA');
             header('Location: ../system.php#adms');
         }
     } else {
@@ -55,38 +55,38 @@ if ($type == 'user') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loading Screen</title>
     <style>
-        body,
-        html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #1d3969;
-            color: white;
-            font-family: Arial, sans-serif;
+    body,
+    html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #1d3969;
+        color: white;
+        font-family: Arial, sans-serif;
+    }
+
+    .loader {
+        border: 16px solid #f3f3f3;
+        border-top: 16px solid #3498db;
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
         }
 
-        .loader {
-            border: 16px solid #f3f3f3;
-            border-top: 16px solid #3498db;
-            border-radius: 50%;
-            width: 120px;
-            height: 120px;
-            animation: spin 2s linear infinite;
+        100% {
+            transform: rotate(360deg);
         }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
+    }
     </style>
 </head>
 

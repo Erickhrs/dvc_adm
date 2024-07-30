@@ -104,7 +104,7 @@ VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         $stmt->close();
         $mysqli->close();
-        newHistoryEvent($_SESSION['id'], "Usuário " . $name . " cadastrado", date('Y-m-d H:i:s'), 'BAIXA');
+        newHistoryEvent($_SESSION['id'], "Cadastrou o usuário " . $name, date('Y-m-d H:i:s'), 'BAIXA');
     }
 }
 ?>

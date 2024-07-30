@@ -18,7 +18,7 @@ export default () =>{
                 <div class="order" style="padding:0px!important;background-color:transparent!important;">
                     <div class="head" style="margin-bottom:0px!important">
                         <a href="./newQuestion.php" class="newQuestionBtn"><i class='bx bx-plus'></i>Nova questão</a>
-                        <a href="./newQuestion.php" class="newQuestionBtn"><i class='bx bx-plus'></i>Novo atributo<a>
+                        <a href="./disciplines.php" class="newQuestionBtn"><i class='bx bx-plus'></i>Novo atributo<a>
                     </div>
                    
                 </div>

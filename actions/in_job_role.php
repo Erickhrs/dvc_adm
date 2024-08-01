@@ -3,10 +3,10 @@ include_once('../includes/connection.php');
 include_once('../includes/protect.php');
 include("../includes/history.php");
 
-if (isset($_POST['newjob_role']) && !empty($_POST['newjob_role'])) {
+if (isset($_POST['newJob_role']) && !empty($_POST['newJob_role'])) {
     function isDuplicate($mysqli, $coldb, $value)
     {
-        $sql = "SELECT * FROM job_role WHERE $coldb = ?";
+        $sql = "SELECT * FROM job_roles WHERE $coldb = ?";
         $stmt = $mysqli->prepare($sql);
         $stmt->bind_param("s", $value);
         $stmt->execute();
@@ -18,7 +18,7 @@ if (isset($_POST['newjob_role']) && !empty($_POST['newjob_role'])) {
     $new = $_POST['newJob_role'];
     if (isDuplicate($mysqli, 'job_role', $new)) {
         echo "<script>alert('ERRO: JA EXISTE ESSE ATRIBUTO')</script>";
-        header('Location: ../job_role.php');
+        header('Location: ../jobRoles.php');
     } else{
     $sql = 'INSERT INTO job_roles (job_role) VALUES (?)';
 
@@ -33,12 +33,12 @@ if (isset($_POST['newjob_role']) && !empty($_POST['newjob_role'])) {
     $stmt->close();
     $mysqli->close();
     newHistoryEvent($_SESSION['id'], "Adicionou um novo cargo (". $new . ")", date('Y-m-d H:i:s'), 'BAIXA');
-    header('Location: ../job_role.php');
+    header('Location: ../jobRoles.php');
     }
    
 } else {
     echo "<script>alert('ERRO: CAMPO NÃO PODE ESTAR VAZIO')</script>";
-    header('Location: ../job_role.php');
+    header('Location: ../jobRoles.php');
 }
 
 

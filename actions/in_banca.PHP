@@ -24,21 +24,18 @@ if (isset($_POST['newBanca']) && !empty($_POST['newBanca'])) {
 
     $stmt = $mysqli->prepare($sql);
 
-    $stmt->bind_param(
-        "s",
-        $new
-    );
+    $stmt->bind_param("s", $new);
 
     $stmt->execute();
     $stmt->close();
     $mysqli->close();
     newHistoryEvent($_SESSION['id'], "Adicionou uma nova banca (". $new . ")", date('Y-m-d H:i:s'), 'BAIXA');
-    header('Location: ../bancas.php');
+   header('Location: ../bancas.php');
     }
    
 } else {
     echo "<script>alert('ERRO: CAMPO NÃO PODE ESTAR VAZIO')</script>";
-    header('Location: ../bancas.php');
+   header('Location: ../bancas.php');
 }
 
 

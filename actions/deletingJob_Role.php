@@ -20,17 +20,17 @@ if (isset($_POST) && !empty($_POST) && $_POST['validation'] == 'eu quero excluir
     $name = $_POST['atr_name'];
     if (isUtilized($mysqli, 'job_role', $ID)){
         echo "<script>alert('ERRO: HÁ QUESTÕES VINCULADAS A ESSE CARGO...')</script>";
-        header('Location: ../erro.php');
+        header('Location: ../jobRoles.php');
     }
     else {
         $sql = "DELETE FROM job_roles where ID = '$ID'";
         $sql_query = $mysqli->query($sql) or die("Falha na execução do código SQL: " . $mysqli->error);
         newHistoryEvent($_SESSION['id'], "Deletou um cargo (#". $ID . " - " . $name . ")", date('Y-m-d H:i:s'), 'ALTA');
-        header('Location: ../job_roles.php');
+        header('Location: ../jobRoles.php');
     }
 }
 else{
-    header('Location: ../job_roles.php');
+    header('Location: ../jobRoles.php');
 }
 ?>
 

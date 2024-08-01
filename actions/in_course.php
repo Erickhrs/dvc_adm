@@ -32,7 +32,7 @@ if (isset($_POST['newCourse']) && !empty($_POST['newCourse'])) {
     $stmt->execute();
     $stmt->close();
     $mysqli->close();
-    newHistoryEvent($_SESSION['id'], "Adicionou um novo curso (". $new . ")", date('Y-m-d H:i:s'), 'BAIXA');
+    newHistoryEvent($_SESSION['id'], "Adicionou uma nova formação (". $new . ")", date('Y-m-d H:i:s'), 'BAIXA');
     header('Location: ../courses.php');
     }
    

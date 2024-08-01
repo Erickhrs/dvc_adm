@@ -18,19 +18,19 @@ if (isset($_POST) && !empty($_POST) && $_POST['validation'] == 'eu quero excluir
 
     $ID = $_POST['atr_ID'];
     $name = $_POST['atr_name'];
-    if (isUtilized($mysqli, 'function', $ID)){
-        echo "<script>alert('ERRO: HÁ QUESTÕES VINCULADAS A ESSA FUNÇÃO...')</script>";
+    if (isUtilized($mysqli, 'job_function', $ID)){
+        echo "<script>alert('ERRO: HÁ QUESTÕES VINCULADAS A ESSA ATUAÇÃO...')</script>";
         header('Location: ../erro.php');
     }
     else {
-        $sql = "DELETE FROM functions where ID = '$ID'";
+        $sql = "DELETE FROM job_functions where ID = '$ID'";
         $sql_query = $mysqli->query($sql) or die("Falha na execução do código SQL: " . $mysqli->error);
-        newHistoryEvent($_SESSION['id'], "Deletou uma função (#". $ID . " - " . $name . ")", date('Y-m-d H:i:s'), 'ALTA');
-        header('Location: ../functions.php');
+        newHistoryEvent($_SESSION['id'], "Deletou uma atuação (#". $ID . " - " . $name . ")", date('Y-m-d H:i:s'), 'ALTA');
+        header('Location: ../jobFunctions.php');
     }
 }
 else{
-    header('Location: ../functions.php');
+    header('Location: ../jobFunctions.php');
 }
 ?>
 

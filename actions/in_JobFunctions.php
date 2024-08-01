@@ -3,10 +3,10 @@ include_once('../includes/connection.php');
 include_once('../includes/protect.php');
 include("../includes/history.php");
 
-if (isset($_POST['newFunction']) && !empty($_POST['newFunction'])) {
+if (isset($_POST['newJobFunctions']) && !empty($_POST['newJobFunctions'])) {
     function isDuplicate($mysqli, $coldb, $value)
     {
-        $sql = "SELECT * FROM functions WHERE $coldb = ?";
+        $sql = "SELECT * FROM job_functions WHERE $coldb = ?";
         $stmt = $mysqli->prepare($sql);
         $stmt->bind_param("s", $value);
         $stmt->execute();
@@ -15,12 +15,12 @@ if (isset($_POST['newFunction']) && !empty($_POST['newFunction'])) {
         $stmt->close();
         return $isDuplicate;
     }
-    $new = $_POST['newFunction'];
-    if (isDuplicate($mysqli, 'function', $new)) {
+    $new = $_POST['newJobFunctions'];
+    if (isDuplicate($mysqli, 'job_function', $new)) {
         echo "<script>alert('ERRO: JA EXISTE ESSE ATRIBUTO')</script>";
-        header('Location: ../functions.php');
+        header('Location: ../jobFunctions.php');
     } else{
-    $sql = 'INSERT INTO functions (function) VALUES (?)';
+    $sql = 'INSERT INTO job_functions (job_function) VALUES (?)';
 
     $stmt = $mysqli->prepare($sql);
 
@@ -33,12 +33,12 @@ if (isset($_POST['newFunction']) && !empty($_POST['newFunction'])) {
     $stmt->close();
     $mysqli->close();
     newHistoryEvent($_SESSION['id'], "Adicionou uma nova Atuação (". $new . ")", date('Y-m-d H:i:s'), 'BAIXA');
-    header('Location: ../functions.php');
+    header('Location: ../jobFunctions.php');
     }
    
 } else {
     echo "<script>alert('ERRO: CAMPO NÃO PODE ESTAR VAZIO')</script>";
-    header('Location: ../functions.php');
+    header('Location: ../jobFunctions.php');
 }
 
 

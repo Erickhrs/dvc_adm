@@ -18,12 +18,12 @@ if ($displayType == 'option') {
 }
 else if ($displayType == 'list') {
     if ($result->num_rows > 0) {
-        echo '<thead><tr><th>ID</th><th>Disciplina</th></tr></thead>';
+        echo '<thead><tr><th>ID</th><th>Assunto</th></tr></thead>';
         while ($row = $result->fetch_assoc()) {
                 echo '<tr><td>' . '#' . $row['ID'] .'</td><td>' . $row['subject'] . '</td></tr>';
         }
     } else {
-        echo 'Nada';
+        echo 'Vazio';
     }
 } 
 

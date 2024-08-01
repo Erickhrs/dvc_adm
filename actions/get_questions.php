@@ -1,32 +1,23 @@
 <?php
-include('./includes/connection.php');
-include('./includes/protect.php');
+include("../includes/connection.php");
+include("../includes/protect.php");
 
-$sql = "SELECT ID, question, adms_ID, created_at, status FROM questions";
+if ($mysqli->connect_error) {
+    die("Connection failed: " . $mysqli->connect_error);
+}
+
+$sql = "SELECT ID, question,  from questions";
 $result = $mysqli->query($sql);
+$users = array();
 
-if ($result->num_rows>0){
-while ($row = $result->fetch_assoc()) {
-    echo '<tr>
-                    <td class="questionTD">
-                        <p>' . $row['question'] .'</p>
-                    </td>
-                    <td class="answerTD">
-                        <p>RESPOSTA A</p>
-                    </td>
-                    <td>
-                        <img src="/assets/people.png">
-                        <p>John Doe</p>
-                    </td>
-                    <td>'. $row['created_at'] . '</td>
-                    <td><span class="status completed">'. $row['status'] . '</span></td>
-                    <td><i class="bx bx-edit editIcon"></i></td>
-                </tr>';
+if ($result->num_rows > 0){
+    while($row = $result->fetch_assoc()) {
+        $row['status'] = ($row['status'] == 1) ? "ativo" : "desativo";
+        $users[] = $row;
+    }
 }
-}  else {
-    echo '<option value="">Nenhum formação encontrada</option>';
+ else {
 }
-
-$mysqli->close();
-
+header('Content-Type: application/json');
+echo json_encode($users);
 ?>

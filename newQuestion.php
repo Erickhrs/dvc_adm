@@ -128,20 +128,28 @@ include('./includes/currentUserInfos.php');
             </div>
             <form action="./actions/in_question.php" method="post">
                 <textarea class="question" name="question" placeholder="Escreva a questão aqui..."></textarea><br>
-                <textarea class="question_option" name="o1"
-                    placeholder="Escreva a primeira alternativa aqui..."></textarea><br>
-                <textarea class="question_option" name="o2"
-                    placeholder="Escreva a segunda alternativa aqui..."></textarea><br>
-                <textarea class="question_option" name="o3"
-                    placeholder="Escreva a terceira alternativa aqui..."></textarea><br>
-                <textarea class="question_option" name="o4"
-                    placeholder="Escreva a quarta alternativa aqui..."></textarea><br>
+                <select name="answer" id="answer" style="    background-color: var(--logo-blue);color: white;font-weight: 900;
+border-radius: 100px;margin-bottom: 15px;width: fit-content;">
+                    <option value="" disabled selected>Alternativa correta</option>
+                    <option value="oa">A</option>
+                    <option value="ob">B</option>
+                    <option value="oc">C</option>
+                    <option value="od">D</option>
+                </select>
+                <textarea class="question_option" name="oa"
+                    placeholder="Escreva a alternativa A aqui..."></textarea><br>
+                <textarea class="question_option" name="ob"
+                    placeholder="Escreva a alternativa B aqui..."></textarea><br>
+                <textarea class="question_option" name="oc"
+                    placeholder="Escreva a alternativa C aqui..."></textarea><br>
+                <textarea class="question_option" name="od"
+                    placeholder="Escreva a alternativa D aqui..."></textarea><br>
                 <textarea class="related_contents" name="related_contents" rows="4" cols="50"
                     placeholder='Liste suas referências ou Conteúdos Relacionados...'></textarea><br>
                 <div id="aboutQuestions" style="display: flex!important; flex-wrap: wrap!important;">
                     <input type="text" name="nextId" id="nextId" disabled placeholder="#13" value="#13"
                         style="text-align: center;">
-                    <select id="ano" name="ano">
+                    <select id="year" name="year">
                         <option value="">Ano da questão</option>
                         <script>
                         for (let ano = 1980; ano <= 2030; ano++) {
@@ -151,50 +159,50 @@ include('./includes/currentUserInfos.php');
                     </select>
                     <input type="text" name="keys" placeholder="Palavras chaves">
 
-                    <select>
+                    <select name="discipline">
                         <?php
                         $displayType = 'option';
                         include_once('./actions/get_disciplines.php');
                         ?>
                     </select>
-                    <select>
+                    <select name="subject">
                         <?php
                         include_once('./actions/get_subjects.php');
                         ?>
                     </select>
-                    <select>
+                    <select name="banca">
                         <?php
                         include_once('./actions/get_bancas.php');
                         ?>
                     </select>
-                    <select>
+                    <select name="job_role">
                         <?php
                         include_once('./actions/get_job_roles.php');
                         ?>
                     </select>
-                    <select name="" id="">
+                    <select name="grade_level">
                         <option value="">Selecione o nível</option>
-                        <option value="">Fundamental</option>
-                        <option value="">Médio</option>
-                        <option value="">Superior</option>
+                        <option value="fundamental">Fundamental</option>
+                        <option value="médio">Médio</option>
+                        <option value="superior">Superior</option>
                     </select>
-                    <select>
+                    <select name="course">
                         <?php
                         include_once('./actions/get_courses.php');
                         ?>
                     </select>
                     <select name="" id="" disabled>
-                        <option value="">Multipla Escolha</option>
+                        <option value="mult">Multipla Escolha</option>
                     </select>
-                    <select name="" id="">
+                    <select name="level">
                         <option value="">Selecione a dificuldade</option>
                         <option value="">Fácil</option>
                         <option value="">Médio</option>
                         <option value="">Difícil</option>
                     </select>
-                    <select>
+                    <select name="job_function">
                         <?php
-                        include_once('./actions/get_functions.php');
+                        include_once('./actions/get_jobFunctions.php');
                         ?>
                     </select>
                 </div>

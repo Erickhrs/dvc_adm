@@ -122,7 +122,7 @@ include('./includes/currentUserInfos.php');
             </div>
             <div class="table-data">
                 <div class="questionType" style="background: none;">
-                    <a href="./disciplines.php" id=""><i class='bx bx-coin'></i>Disciplina</a>
+                    <a href="./disciplines.php" id=""><i class='bx bx-coin'></i>assuntos</a>
                     <a href="./subjects.php" id="" class="userType-active"><i class='bx bx-coin'></i>Assunto</a>
                     <a href="./bancas.php" id=""><i class='bx bx-coin'></i>Banca</a>
                     <a href="./jobRoles.php" id=""><i class='bx bx-coin'></i>Cargo</a>
@@ -134,20 +134,20 @@ include('./includes/currentUserInfos.php');
                 <div class="order"
                     style="    border-radius: 20px;background: var(--light);padding: 24px;overflow-x: auto;text-align: center;height: 50vh;overflow-y: auto;">
                     <div class="head">
-                        <h3>Lista de Disciplinas</h3>
+                        <h3>Lista de Assuntos</h3>
                     </div>
                     <table>
                         <?php
                         $displayType = 'list';
-                        include_once('./actions/get_disciplines.php');
+                        include_once('./actions/get_subjects.php');
                         ?>
                     </table>
                 </div>
                 <div class="order"
                     style="    border-radius: 20px;background: var(--light);padding: 24px;overflow-x: auto;    width: 55%;text-align: center;    display: flex;flex-direction: column;gap: 18px;">
                     <div class="head">
-                        <h3>Adicionar nova disciplina</h3>
-                        <span style="font-size: 11px;">Escreva o nome da disciplina</span>
+                        <h3>Adicionar novo assunto</h3>
+                        <span style="font-size: 11px;">Escreva o nome do assunto</span>
                     </div>
                     <form action="./actions/in_discipline.php" method="post">
                         <input type="text" name="newDiscipline" id="" value="" required>
@@ -156,14 +156,14 @@ include('./includes/currentUserInfos.php');
                                 class='bx bx-check'></i></button>
                     </form>
                     <div class="head">
-                        <h3>Excluir Disciplina</h3>
+                        <h3>Excluir assuntos</h3>
                         <span style="font-size: 11px;">Escreva o texto de validação e informe o ID e o nome</span>
                     </div>
                     <form action="./actions/deletingDiscipline.php" method="post">
                         <input type="text" name="validation" id="" value="" placeholder="ESCREVA: eu quero excluir o #"
                             required>
                         <input type="text" name="atr_ID" id="" value="" placeholder="0" required>
-                        <input type="text" name="atr_name" id="" value="" placeholder="escreva o nome da disciplina"
+                        <input type="text" name="atr_name" id="" value="" placeholder="escreva o nome da assuntos"
                             required>
                         <button type="submit"
                             style="    border: none;background-color: red;height: 30px;width: 30px;border-radius: 25px;cursor: pointer;color:white;"><i

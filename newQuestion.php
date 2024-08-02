@@ -144,12 +144,16 @@ border-radius: 100px;margin-bottom: 15px;width: fit-content;">
                     placeholder="Escreva a alternativa C aqui..."></textarea><br>
                 <textarea class="question_option" name="od"
                     placeholder="Escreva a alternativa D aqui..."></textarea><br>
+                <textarea class="question_option" name="od"
+                    placeholder="Escreva a alternativa E aqui..."></textarea><br>
                 <textarea class="related_contents" name="related_contents" rows="4" cols="50"
                     placeholder='Liste suas referências ou Conteúdos Relacionados...'></textarea><br>
+
                 <div id="aboutQuestions" style="display: flex!important; flex-wrap: wrap!important;">
 
                     <input type="text" name="nextId" id="nextId" disabled
-                        value="<?php include_once('./actions/nxtId.php');?>" style="text-align: center;">
+                        value="<?php $displayCode = 'show'; include_once('./actions/get_nxtCode.php');?>"
+                        style="text-align: center;">
 
                     <select id="year" name="year">
                         <option value="">Ano da questão</option>
@@ -198,9 +202,9 @@ border-radius: 100px;margin-bottom: 15px;width: fit-content;">
                     </select>
                     <select name="level">
                         <option value="">Selecione a dificuldade</option>
-                        <option value="">Fácil</option>
-                        <option value="">Médio</option>
-                        <option value="">Difícil</option>
+                        <option value="facil">Fácil</option>
+                        <option value="medio">Médio</option>
+                        <option value="dificil">Difícil</option>
                     </select>
                     <select name="job_function">
                         <?php

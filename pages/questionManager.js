@@ -266,7 +266,7 @@ fetch('./actions/get_questions.php')
                     tbody.appendChild(tr);
                 });
             } else {
-                tbody.innerHTML = '<tr><td colspan="4">Nenhum usuário encontrado.</td></tr>';
+                tbody.innerHTML = '<tr><td colspan="4">Nenhuma questão encontrada.</td></tr>';
             }
         }).catch(error => {
             console.error('Erro:', error);

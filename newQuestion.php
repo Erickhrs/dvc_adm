@@ -147,8 +147,10 @@ border-radius: 100px;margin-bottom: 15px;width: fit-content;">
                 <textarea class="related_contents" name="related_contents" rows="4" cols="50"
                     placeholder='Liste suas referências ou Conteúdos Relacionados...'></textarea><br>
                 <div id="aboutQuestions" style="display: flex!important; flex-wrap: wrap!important;">
-                    <input type="text" name="nextId" id="nextId" disabled placeholder="#13" value="#13"
-                        style="text-align: center;">
+
+                    <input type="text" name="nextId" id="nextId" disabled
+                        value="<?php include_once('./actions/nxtId.php');?>" style="text-align: center;">
+
                     <select id="year" name="year">
                         <option value="">Ano da questão</option>
                         <script>

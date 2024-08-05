@@ -135,6 +135,7 @@ border-radius: 100px;margin-bottom: 15px;width: fit-content;">
                     <option value="ob">B</option>
                     <option value="oc">C</option>
                     <option value="od">D</option>
+                    <option value="oe">E</option>
                 </select>
                 <textarea class="question_option" name="oa"
                     placeholder="Escreva a alternativa A aqui..."></textarea><br>
@@ -197,7 +198,7 @@ border-radius: 100px;margin-bottom: 15px;width: fit-content;">
                         include_once('./actions/get_courses.php');
                         ?>
                     </select>
-                    <select name="" id="" disabled>
+                    <select name="qType" id="" disabled>
                         <option value="mult">Multipla Escolha</option>
                     </select>
                     <select name="level">

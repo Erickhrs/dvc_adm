@@ -7,22 +7,43 @@ include_once('../actions/get_nxtCode.php');
 //var_dump($_POST);
 //echo $next_id;
 
+function formatSelectedValues($values) {
+    if (is_array($values)) {
+        return implode('-', $values); // Junta os valores com "-"
+    }
+    return '';
+}
+
+function isCorrect($correct, $value) {
+    if ($correct == $value){
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
 $question = isset($_POST['question']) ? $_POST['question'] : "";
 $related_contents = isset($_POST['related_contents']) ? $_POST['related_contents'] : "";
 $year = isset($_POST['year']) ? $_POST['year'] : "";
 $keys = isset($_POST['keys']) ? $_POST['keys'] : "";
-$discipline = isset($_POST['discipline']) ? $_POST['discipline'] : "";
 $subject = isset($_POST['subject']) ? $_POST['subject'] : "";
 $banca = isset($_POST['banca']) ? $_POST['banca'] : "";
 $job_role = isset($_POST['job_role']) ? $_POST['job_role'] : "";
-$grade_level = isset($_POST['grade_level']) ? $_POST['grade_level'] : "";
-$course = isset($_POST['course']) ? $_POST['course'] : "";
 $level = isset($_POST['level']) ? $_POST['level'] : "";
-$job_function = isset($_POST['job_function']) ? $_POST['job_function'] : "";
 $question_type = 'mult';
 $adms_ID = $_SESSION['id'];
 $status = 1;
 $answer = $_POST['answer'];
+
+$course = isset($_POST['course']) ? formatSelectedValues($_POST['course']) : '';
+$discipline = isset($_POST['discipline']) ? formatSelectedValues($_POST['discipline']) : '';
+$job_function = isset($_POST['job_function']) ? formatSelectedValues($_POST['job_function']) : '';
+$grade_level = isset($_POST['grade_level']) ? formatSelectedValues($_POST['grade_level']) : '';
+
+echo "Cursos selecionados: " . htmlspecialchars($course) . "<br>";
+echo "Disciplinas selecionadas: " . htmlspecialchars($discipline) . "<br>";
+echo "Atuação selecionada: " . htmlspecialchars($job_function) . "<br>";
+echo "Níveis selecionados: " . htmlspecialchars($grade_level) . "<br>";
 
 //---------------------------------------------------------------
 
@@ -61,13 +82,7 @@ if ($stmt->execute()) {
 
 //---------------------------------------------------------------
 
-function isCorrect($correct, $value) {
-        if ($correct == $value){
-            return 1;
-        } else {
-            return 0;
-        }
-    }
+
  
 $alternative = "A";
 $questionValue = isCorrect($answer, 'oa');

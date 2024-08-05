@@ -2,6 +2,7 @@
 include('./includes/connection.php');
 include('./includes/protect.php');
 include('./includes/currentUserInfos.php');
+$displayType = 'option';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -13,6 +14,8 @@ include('./includes/currentUserInfos.php');
     <link rel="stylesheet" href="./styles/system.css">
     <link rel="stylesheet" href="./styles/global.css">
     <link rel="shortcut icon" href="./assets/logo.ico" type="image/x-icon">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.1.0/dist/css/multi-select-tag.css">
 
     <title>DVC - ADMIN</title>
 </head>
@@ -150,7 +153,7 @@ border-radius: 100px;margin-bottom: 15px;width: fit-content;">
                 <textarea class="related_contents" name="related_contents" rows="4" cols="50"
                     placeholder='Liste suas referências ou Conteúdos Relacionados...'></textarea><br>
 
-                <div id="aboutQuestions" style="display: flex!important; flex-wrap: wrap!important;">
+                <div id="aboutQuestions" style="display: flex!important; flex-wrap: wrap!important;gap: 15px;">
 
                     <input type="text" name="nextId" id="nextId" disabled
                         value="<?php $displayCode = 'show'; include_once('./actions/get_nxtCode.php');?>"
@@ -166,12 +169,7 @@ border-radius: 100px;margin-bottom: 15px;width: fit-content;">
                     </select>
                     <input type="text" name="keys" placeholder="Palavras chaves">
 
-                    <select name="discipline">
-                        <?php
-                        $displayType = 'option';
-                        include_once('./actions/get_disciplines.php');
-                        ?>
-                    </select>
+
                     <select name="subject">
                         <?php
                         include_once('./actions/get_subjects.php');
@@ -187,17 +185,8 @@ border-radius: 100px;margin-bottom: 15px;width: fit-content;">
                         include_once('./actions/get_job_roles.php');
                         ?>
                     </select>
-                    <select name="grade_level">
-                        <option value="">Selecione o nível</option>
-                        <option value="fundamental">Fundamental</option>
-                        <option value="médio">Médio</option>
-                        <option value="superior">Superior</option>
-                    </select>
-                    <select name="course">
-                        <?php
-                        include_once('./actions/get_courses.php');
-                        ?>
-                    </select>
+
+
                     <select name="qType" id="" disabled>
                         <option value="mult">Multipla Escolha</option>
                     </select>
@@ -207,10 +196,33 @@ border-radius: 100px;margin-bottom: 15px;width: fit-content;">
                         <option value="medio">Médio</option>
                         <option value="dificil">Difícil</option>
                     </select>
-                    <select name="job_function">
+                    <label for="course">Formação</label>
+                    <select name="course[]" id="courses" multiple>
                         <?php
+                        $displayType = 'option';
+                        include_once('./actions/get_courses.php');
+                        ?>
+                    </select>
+                    <label for="course">Disciplina</label>
+                    <select name="discipline[]" id="disciplines" multiple>
+                        <?php
+                        $displayType = 'option';
+                        include_once('./actions/get_disciplines.php');
+                        ?>
+                    </select>
+                    <label for="course">Atuação</label>
+                    <select name="job_function[]" id="job_funcions" multiple>
+                        <?php
+                           $displayType = 'option';
                         include_once('./actions/get_jobFunctions.php');
                         ?>
+                    </select>
+                    <label for="course">Nível</label>
+                    <select name="grade_level[]" id="grade_levels" multiple>
+                        <option value="">Selecione o nível</option>
+                        <option value="fundamental">Fundamental</option>
+                        <option value="médio">Médio</option>
+                        <option value="superior">Superior</option>
                     </select>
                 </div>
                 <input type="submit" value="Cadastrar no banco de dados" id="cadbtn">
@@ -224,6 +236,13 @@ border-radius: 100px;margin-bottom: 15px;width: fit-content;">
     <script src="./scripts/richtextarea.js"></script>
     <script src="./scripts/system.js"></script>
     <script type="module" src="./scripts/spa.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.1.0/dist/js/multi-select-tag.js"></script>]
+    <script>
+    new MultiSelectTag('disciplines')
+    new MultiSelectTag('grade_levels')
+    new MultiSelectTag('job_funcions')
+    new MultiSelectTag('courses')
+    </script>
 </body>
 
 </html>

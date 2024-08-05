@@ -145,7 +145,7 @@ border-radius: 100px;margin-bottom: 15px;width: fit-content;">
                     placeholder="Escreva a alternativa C aqui..."></textarea><br>
                 <textarea class="question_option" name="od"
                     placeholder="Escreva a alternativa D aqui..."></textarea><br>
-                <textarea class="question_option" name="od"
+                <textarea class="question_option" name="oe"
                     placeholder="Escreva a alternativa E aqui..."></textarea><br>
                 <textarea class="related_contents" name="related_contents" rows="4" cols="50"
                     placeholder='Liste suas referências ou Conteúdos Relacionados...'></textarea><br>

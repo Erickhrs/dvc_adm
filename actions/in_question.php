@@ -26,11 +26,20 @@ $answer = $_POST['answer'];
 
 //---------------------------------------------------------------
 
+$answerMapping = [
+    'oa' => 'A',
+    'ob' => 'B',
+    'oc' => 'C',
+    'od' => 'D',
+    'oe' => 'E'
+];
+$correct = isset($answerMapping[$answer]) ? $answerMapping[$answer] : null;
+
 $sql = "INSERT INTO `questions` (
     `ID`, `question`, `year`, `related_contents`, `keys`, `discipline`, `subject`, `banca`, 
-    `job_role`, `grade_level`, `course`, `question_type`, `level`, `adms_ID`, `job_function`, `created_at`, `status`
+    `job_role`, `grade_level`, `course`, `question_type`, `level`, `adms_ID`, `job_function`, `created_at`, `status`, `correct`
 ) VALUES (
-    ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), ?
+    ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), ?, ?
 )";
 
 $stmt = $mysqli->prepare($sql);
@@ -38,9 +47,9 @@ if ($stmt === false) {
     die('Erro na preparação da declaração: ' . $mysqli->error);
 }// Vincula os parâmetros
 $stmt->bind_param(
-    'sssssssssssssssi', // tipos dos parâmetros
+    'sssssssssssssssis', // tipos dos parâmetros
     $next_id, $question, $year, $related_contents, $keys, $discipline, $subject, $banca, 
-    $job_role, $grade_level, $course, $question_type, $level, $adms_ID, $job_function, $status
+    $job_role, $grade_level, $course, $question_type, $level, $adms_ID, $job_function, $status, $correct
 );
 
 if ($stmt->execute()) {
@@ -59,7 +68,7 @@ function isCorrect($correct, $value) {
             return 0;
         }
     }
-    
+ 
 $alternative = "A";
 $questionValue = isCorrect($answer, 'oa');
 $oa = isset($_POST['oa']) ? $_POST['oa'] : "";
@@ -147,9 +156,12 @@ if ($stmt->execute()) {
     echo "Erro ao inserir os registros: " . $stmt->error;
 }
 
-$alternative = "E";
-$questionValue = isCorrect($answer, 'oe');
 $oe = isset($_POST['oe']) ? $_POST['oe'] : "";
+
+ if ($oe !== "") {
+    $alternative = "E";
+$questionValue = isCorrect($answer, 'oe');
+
 
 $sql = "INSERT INTO answers (questions_ID, alternative, answer, correct) VALUES (?, ?, ?,?)";
 
@@ -167,7 +179,7 @@ if ($stmt->execute()) {
 } else {
     echo "Erro ao inserir os registros: " . $stmt->error;
 }
-
+}
 
 $stmt->close();
      

@@ -6,7 +6,7 @@ if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 }
 
-$sql = "SELECT ID, question, adms_id, created_at, status FROM questions";
+$sql = "SELECT ID, question, adms_id, created_at, status, correct FROM questions";
 $result = $mysqli->query($sql);
 $users = array();
 

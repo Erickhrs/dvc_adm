@@ -1,4 +1,4 @@
-export default () =>{
+export default () => {
     const container = document.createElement('div');
     const template = `<div class="head-title">
     <div class="left">
@@ -248,7 +248,7 @@ export default () =>{
     }
 </style>
 `
-fetch('./actions/get_questions.php')
+    fetch('./actions/get_questions.php')
         .then(response => response.json())
         .then(data => {
             const tbody = document.getElementById('questionTB');
@@ -262,7 +262,13 @@ fetch('./actions/get_questions.php')
                     <td>${data.adms_id}</td>
                     <td>${data.created_at}</td>
                      <td class='${data.status}_status'>${data.status}</td>
+
+                     
         `;
+                    tr.querySelector('.questionTD').addEventListener('click', () => {
+                        window.location.href = `./editQuestion.php?id=${data.ID}`; // Substitua 'sua_pagina.html' pelo nome da sua página
+                    });
+
                     tbody.appendChild(tr);
                 });
             } else {

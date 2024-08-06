@@ -28,13 +28,13 @@ $displayType = 'option';
 			margin-right: 15px">
         </a>
         <ul class="side-menu top">
-            <li class="active">
+            <li>
                 <a href="./system.php#dashboard">
                     <i class='bx bxs-dashboard'></i>
                     <span class="text">Painel</span>
                 </a>
             </li>
-            <li>
+            <li class="active">
                 <a href="./system.php#questionManager">
                     <i class='bx bxs-layer'></i>
                     <span class="text">Gerenciador de Questões</span>
@@ -133,21 +133,21 @@ $displayType = 'option';
                 <textarea class="question" name="question" placeholder="Escreva a questão aqui..."></textarea><br>
                 <select name="answer" id="answer" style="    background-color: var(--logo-blue);color: white;font-weight: 900;
 border-radius: 100px;margin-bottom: 15px;width: fit-content;" required>
-                    <option value="" disabled selected>Alternativa correta</option>
+                    <option value="" selected>Alternativa correta</option>
                     <option value="oa">A</option>
                     <option value="ob">B</option>
                     <option value="oc">C</option>
                     <option value="od">D</option>
                     <option value="oe">E</option>
                 </select>
-                <textarea class="question_option" name="oa" placeholder="Escreva a alternativa A aqui..."
-                    required></textarea><br>
-                <textarea class="question_option" name="ob" placeholder="Escreva a alternativa B aqui..."
-                    required></textarea><br>
-                <textarea class="question_option" name="oc" placeholder="Escreva a alternativa C aqui..."
-                    required></textarea><br>
-                <textarea class="question_option" name="od" placeholder="Escreva a alternativa D aqui..."
-                    required></textarea><br>
+                <textarea class="question_option" name="oa"
+                    placeholder="Escreva a alternativa A aqui..."></textarea><br>
+                <textarea class="question_option" name="ob"
+                    placeholder="Escreva a alternativa B aqui..."></textarea><br>
+                <textarea class="question_option" name="oc"
+                    placeholder="Escreva a alternativa C aqui..."></textarea><br>
+                <textarea class="question_option" name="od"
+                    placeholder="Escreva a alternativa D aqui..."></textarea><br>
                 <textarea class="question_option" name="oe"
                     placeholder="Escreva a alternativa E aqui..."></textarea><br>
                 <textarea class="related_contents" name="related_contents" rows="4" cols="50"

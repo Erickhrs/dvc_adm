@@ -58,7 +58,7 @@ $correct = isset($answerMapping[$answer]) ? $answerMapping[$answer] : null;
 
 $sql = "INSERT INTO `questions` (
     `ID`, `question`, `year`, `related_contents`, `keys`, `discipline`, `subject`, `banca`, 
-    `job_role`, `grade_level`, `course`, `question_type`, `level`, `adms_ID`, `job_function`, `created_at`, `status`, `correct`
+    `job_role`, `grade_level`, `course`, `question_type`, `level`, `adms_ID`, `job_function`, `created_at`, `status`, `answer`
 ) VALUES (
     ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), ?, ?
 )";

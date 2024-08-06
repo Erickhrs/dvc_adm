@@ -23,7 +23,7 @@ $displayType = 'option';
 <body>
 
     <section id="sidebar">
-        <a  class="brand">
+        <a href="#" class="brand">
             <img src="./assets/logo.png" alt=" logo" style="width: 137px; margin-left: 17px;
 			margin-right: 15px">
         </a>
@@ -34,7 +34,7 @@ $displayType = 'option';
                     <span class="text">Painel</span>
                 </a>
             </li>
-            <li class="active">
+            <li>
                 <a href="./system.php#questionManager">
                     <i class='bx bxs-layer'></i>
                     <span class="text">Gerenciador de Questões</span>
@@ -88,7 +88,7 @@ $displayType = 'option';
         <!-- NAVBAR -->
         <nav>
             <i class='bx bx-menu'></i>
-            <a  class="nav-link">Categorias</a>
+            <a href="#" class="nav-link">Categorias</a>
             <form action="#">
                 <div class="form-input">
                     <input type="search" placeholder="Search...">
@@ -97,7 +97,7 @@ $displayType = 'option';
             </form>
             <input type="checkbox" id="switch-mode" hidden>
             <label for="switch-mode" class="switch-mode"></label>
-            <a  class="notification">
+            <a href="#" class="notification">
                 <i class='bx bxs-bell'></i>
                 <span class="num">8</span>
             </a>
@@ -113,11 +113,11 @@ $displayType = 'option';
                     <h1>Nova Questão</h1>
                     <ul class="breadcrumb">
                         <li>
-                            <a >Painel</a>
+                            <a href="#">Gerenciador Questões</a>
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
-                            <a class="active" >Home</a>
+                            <a class="active" href="#">Nova Questão Mult</a>
                         </li>
                     </ul>
                 </div>

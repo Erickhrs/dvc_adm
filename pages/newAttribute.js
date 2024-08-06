@@ -1,4 +1,4 @@
-export default () =>{
+export default () => {
     const container = document.createElement('div');
     const template = `<div class="head-title">
     <div class="left">
@@ -159,7 +159,7 @@ export default () =>{
                         <p>RESPOSTA A</p>
                     </td>
                     <td>
-                        <img src="/assets/people.png">
+                        <img src="./assets/people.png">
                         <p>John Doe</p>
                     </td>
                     <td>01-10-2021</td>
@@ -175,7 +175,7 @@ export default () =>{
                         <p>RESPOSTA A</p>
                     </td>
                     <td>
-                        <img src="/assets/people.png">
+                        <img src="./assets/people.png">
                         <p>John Doe</p>
                     </td>
                     <td>01-10-2021</td>
@@ -191,7 +191,7 @@ export default () =>{
                         <p>RESPOSTA A</p>
                     </td>
                     <td>
-                        <img src="/assets/people.png">
+                        <img src="./assets/people.png">
                         <p>John Doe</p>
                     </td>
                     <td>01-10-2021</td>
@@ -207,7 +207,7 @@ export default () =>{
                         <p>RESPOSTA A</p>
                     </td>
                     <td>
-                        <img src="/assets/people.png">
+                        <img src="./assets/people.png">
                         <p>John Doe</p>
                     </td>
                     <td>01-10-2021</td>
@@ -222,7 +222,7 @@ export default () =>{
                         <p>RESPOSTA A</p>
                     </td>
                     <td>
-                        <img src="/assets/people.png">
+                        <img src="./assets/people.png">
                         <p>John Doe</p>
                     </td>
                     <td>01-10-2021</td>

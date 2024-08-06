@@ -1,4 +1,15 @@
 export default () => {
+    const updateCounters = async () => {
+        try {
+            const response = await fetch('./actions/counts.php');
+            const data = await response.json();
+            document.querySelector('#TotalUsersAct').textContent = data.totalUsersAct;
+            document.querySelector('#TotalUsersDesac').textContent = data.totalUsersDesac;
+            document.querySelector('#TotalUsersPremium').textContent = "0";  // Atualiza o contador de questões
+        } catch (error) {
+            console.error('Error fetching count:', error);
+        }
+    };
     const container = document.createElement('div');
     const template = `
      <div class="head-title">
@@ -23,21 +34,21 @@ export default () => {
                 <li>
                     <i class='bx bxs-group'></i>
                     <span class="text">
-                        <h3>0</h3>
+                        <h3 id="TotalUsersAct">0</h3>
                         <p>Usuários ativos</p>
                     </span>
                 </li>
                 <li>
                     <i class='bx bx-user-check'></i>
                     <span class="text">
-                        <h3>0</h3>
+                        <h3 id="TotalUsersPremium">0</h3>
                         <p>Usuários Assinantes</p>
                     </span>
                 </li>
                 <li>
                     <i class='bx bx-user-x'></i>
                     <span class="text">
-                        <h3>0</h3>
+                        <h3 id="TotalUsersDesac">0</h3>
                         <p>Usuários Desativados</p>
                     </span>
                 </li>
@@ -148,7 +159,7 @@ export default () => {
             const tbody = document.getElementById('admsTableBody');
             tbody.innerHTML = '<tr><td colspan="4">Erro ao carregar os dados.</td></tr>';
         });
-
+    updateCounters();
     container.innerHTML = template;
     return container;
 }

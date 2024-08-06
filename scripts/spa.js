@@ -1,54 +1,51 @@
-import dashboard from "../pages/dashboard.js"
-import questionManager from "../pages/questionManager.js"
-import statistics from "../pages/statistics.js"
-import messages from "../pages/messages.js"
-import users from "../pages/users.js"
-import history from "../pages/history.js"
-import settings from "../pages/settings.js"
-import adms from "../pages/adms.js"
-import newQuestion from "../pages/newQuestion.js"
+import dashboard from "../pages/dashboard.js";
+import questionManager from "../pages/questionManager.js";
+import statistics from "../pages/statistics.js";
+import messages from "../pages/messages.js";
+import users from "../pages/users.js";
+import history from "../pages/history.js";
+import settings from "../pages/settings.js";
+import adms from "../pages/adms.js";
+import newQuestion from "../pages/newQuestion.js";
+
+const pageMap = {
+    '': dashboard,
+    '#dashboard': dashboard,
+    '#questionManager': questionManager,
+    '#statistics': statistics,
+    '#messages': messages,
+    '#users': users,
+    '#history': history,
+    '#settings': settings,
+    '#adms': adms,
+    '#newQuestion': newQuestion
+};
 
 const init = () => {
-    window.addEventListener("hashchange", () => {
-        main.innerHTML = ""
+    const path = window.location.pathname;
+    const fileName = path.split('/').pop();
 
-        switch (window.location.hash) {
-            case "":
-                main.appendChild(dashboard());
-                break;
-            case "#dashboard":
-                main.appendChild(dashboard());
-                break;
-            case "#questionManager":
-                main.appendChild(questionManager());
-                break;
-            case "#statistics":
-                main.appendChild(statistics());
-                break;
-            case "#messages":
-                main.appendChild(messages());
-                break;
-            case "#users":
-                main.appendChild(users());
-                break;
-            case "#history":
-                main.appendChild(history());
-                break;
-            case "#settings":
-                main.appendChild(settings());
-                break;
-            case "#adms":
-                main.appendChild(adms());
-                break;
-            case "#newQuestion":
-                main.appendChild(newQuestion());
-                break;
-        }
-    })
-}
+    const handleHashChange = () => {
+        const page = pageMap[window.location.hash] || dashboard;
+        main.innerHTML = "";
+        main.appendChild(page());
+    };
 
+    window.addEventListener("hashchange", handleHashChange);
+    handleHashChange(); // Initial load
+};
+
+const menu = document.querySelector(".side-menu");
 const main = document.querySelector("#root");
-window.addEventListener("load", function () {
-    //main.appendChild(dashboard())
-    init()
+
+menu.addEventListener("click", init);
+
+window.addEventListener("load", () => {
+    const path = window.location.pathname;
+    const fileName = path.split('/').pop();
+
+    if (fileName === "system.php") {
+        main.appendChild(dashboard());
+        init();
+    }
 });

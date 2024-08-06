@@ -1,4 +1,14 @@
-export default () =>{
+export default () => {
+    const updateCounters = async () => {
+        try {
+            const response = await fetch('./actions/counts.php');
+            const data = await response.json();
+            document.querySelector('#TotalQuestions').textContent = data.totalQuestions;
+            document.querySelector('#TotalUsers').textContent = data.totalUsers;  // Atualiza o contador de questões
+        } catch (error) {
+            console.error('Error fetching count:', error);
+        }
+    };
     const container = document.createElement('div');
     const template = `<div class="head-title">
     <div class="left">
@@ -23,14 +33,14 @@ export default () =>{
     <li>
         <i class='bx bxs-layer'></i>
         <span class="text">
-            <h3>0</h3>
+            <h3 id="TotalQuestions">0</h3>
             <p>Questões</p>
         </span>
     </li>
     <li>
         <i class='bx bxs-group' ></i>
         <span class="text">
-            <h3>0</h3>
+            <h3 id="TotalUsers">0</h3>
             <p>Usuários Assinantes</p>
         </span>
     </li>
@@ -62,7 +72,7 @@ export default () =>{
             <tbody>
                 <tr>
                     <td>
-                        <img src="/assets/people.png">
+                        <img src="./assets/people.png">
                         <p>John Doe</p>
                     </td>
                     <td>01-10-2021</td>
@@ -70,7 +80,7 @@ export default () =>{
                 </tr>
                 <tr>
                     <td>
-                        <img src="/assets/people.png">
+                        <img src="./assets/people.png">
                         <p>John Doe</p>
                     </td>
                     <td>01-10-2021</td>
@@ -78,7 +88,7 @@ export default () =>{
                 </tr>
                 <tr>
                     <td>
-                        <img src="/assets/people.png">
+                        <img src="./assets/people.png">
                         <p>John Doe</p>
                     </td>
                     <td>01-10-2021</td>
@@ -86,7 +96,7 @@ export default () =>{
                 </tr>
                 <tr>
                     <td>
-                        <img src="/assets/people.png">
+                        <img src="./assets/people.png">
                         <p>John Doe</p>
                     </td>
                     <td>01-10-2021</td>
@@ -94,7 +104,7 @@ export default () =>{
                 </tr>
                 <tr>
                     <td>
-                        <img src="/assets/people.png">
+                        <img src="./assets/people.png">
                         <p>John Doe</p>
                     </td>
                     <td>01-10-2021</td>
@@ -134,6 +144,7 @@ export default () =>{
     </div>
 </div>`
 
+    updateCounters();
     container.innerHTML = template;
     return container;
 }

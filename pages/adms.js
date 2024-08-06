@@ -1,4 +1,15 @@
 export default () => {
+
+    const updateCounters = async () => {
+        try {
+            const response = await fetch('./actions/counts.php');
+            const data = await response.json();
+            document.querySelector('#ActAdms').textContent = data.totalAdmAct;
+            document.querySelector('#DesAdms').textContent = data.totalAdmDes;  // Atualiza o contador de questões
+        } catch (error) {
+            console.error('Error fetching count:', error);
+        }
+    };
     const container = document.createElement('div');
     const template = `
     <div class="head-title">
@@ -23,22 +34,15 @@ export default () => {
         <li>
             <i class='bx bxs-group'></i>
             <span class="text">
-                <h3>0</h3>
-                <p>Usuários ativos</p>
+                <h3 id="ActAdms">0</h3>
+                <p>Adms ativos</p>
             </span>
         </li>
         <li>
-            <i class='bx bx-user-check'></i>
+            <i class='bx bx-user-x' style="background: var(--light-orange);color: var(--orange);"></i>
             <span class="text">
-                <h3>0</h3>
-                <p>Usuários Assinantes</p>
-            </span>
-        </li>
-        <li>
-            <i class='bx bx-user-x'></i>
-            <span class="text">
-                <h3>0</h3>
-                <p>Usuários Desativados</p>
+                <h3 id="DesAdms">0</h3>
+                <p>Adms Desativados</p>
             </span>
         </li>
     </ul>
@@ -138,5 +142,6 @@ export default () => {
             tbody.innerHTML = '<tr><td colspan="4">Erro ao carregar os dados.</td></tr>';
         });
 
+        updateCounters();
     return container;
 }

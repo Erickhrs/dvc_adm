@@ -15,11 +15,11 @@ export default () => {
         <h1>Gerenciador de Questões</h1>
         <ul class="breadcrumb">
             <li>
-                <a href="#">Painel</a>
+                <a >Gerenciador Questões</a>
             </li>
             <li><i class='bx bx-chevron-right'></i></li>
             <li>
-                <a class="active" href="#">Home</a>
+                <a class="active" >Painel</a>
             </li>
         </ul>
     </div>
@@ -290,7 +290,7 @@ export default () => {
             tbody.innerHTML = '<tr><td colspan="4">Erro ao carregar os dados.</td></tr>';
         });
 
-    
+
     container.innerHTML = template;
     updateCounters();
     return container;

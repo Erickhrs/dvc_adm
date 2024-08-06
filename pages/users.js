@@ -17,7 +17,7 @@ export default () => {
                     <h1>Usuários</h1>
                     <ul class="breadcrumb">
                         <li>
-                            <a href="#">Painel</a>
+                            <a >Painel</a>
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>

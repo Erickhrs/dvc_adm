@@ -44,7 +44,7 @@ if (isset($_POST['name_user'])) {
 <body>
 
     <section id="sidebar">
-        <a href="#" class="brand">
+        <a  class="brand">
             <img src="./assets/logo.png" alt=" logo" style="width: 137px; margin-left: 17px;
 			margin-right: 15px">
         </a>
@@ -109,7 +109,7 @@ if (isset($_POST['name_user'])) {
         <!-- NAVBAR -->
         <nav>
             <i class='bx bx-menu'></i>
-            <a href="#" class="nav-link">Categorias</a>
+            <a  class="nav-link">Categorias</a>
             <form action="#">
                 <div class="form-input">
                     <input type="search" placeholder="Search...">
@@ -118,7 +118,7 @@ if (isset($_POST['name_user'])) {
             </form>
             <input type="checkbox" id="switch-mode" hidden>
             <label for="switch-mode" class="switch-mode"></label>
-            <a href="#" class="notification">
+            <a  class="notification">
                 <i class='bx bxs-bell'></i>
                 <span class="num">8</span>
             </a>
@@ -135,11 +135,11 @@ if (isset($_POST['name_user'])) {
                     <h1><?php echo "$name_user" ?></h1>
                     <ul class="breadcrumb">
                         <li>
-                            <a href="#">Painel</a>
+                            <a >Painel</a>
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
-                            <a class="active" href="#">Home</a>
+                            <a class="active" >Home</a>
                         </li>
                     </ul>
                 </div>

@@ -5,11 +5,11 @@ export default () => {
         <h1>Histórico</h1>
         <ul class="breadcrumb">
             <li>
-                <a href="#">Painel</a>
+                <a >Painel</a>
             </li>
             <li><i class='bx bx-chevron-right' ></i></li>
             <li>
-                <a class="active" href="#">Home</a>
+                <a class="active">Histórico</a>
             </li>
         </ul>
     </div>

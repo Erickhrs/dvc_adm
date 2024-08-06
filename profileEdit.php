@@ -20,7 +20,7 @@ include('./includes/currentUserInfos.php');
 <body>
 
     <section id="sidebar">
-        <a href="#" class="brand">
+        <a  class="brand">
             <img src="./assets/logo.png" alt=" logo" style="width: 137px; margin-left: 17px;
 			margin-right: 15px">
         </a>
@@ -85,7 +85,7 @@ include('./includes/currentUserInfos.php');
         <!-- NAVBAR -->
         <nav>
             <i class='bx bx-menu'></i>
-            <a href="#" class="nav-link">Categorias</a>
+            <a  class="nav-link">Categorias</a>
             <form action="#">
                 <div class="form-input">
                     <input type="search" placeholder="Search...">
@@ -94,7 +94,7 @@ include('./includes/currentUserInfos.php');
             </form>
             <input type="checkbox" id="switch-mode" hidden>
             <label for="switch-mode" class="switch-mode"></label>
-            <a href="#" class="notification">
+            <a  class="notification">
                 <i class='bx bxs-bell'></i>
                 <span class="num">8</span>
             </a>
@@ -111,7 +111,7 @@ include('./includes/currentUserInfos.php');
                     <h1>Editar Informaçoes</h1>
                     <ul class="breadcrumb">
                         <li>
-                            <a href="#">Painel</a>
+                            <a >Painel</a>
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>

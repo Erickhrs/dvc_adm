@@ -6,7 +6,7 @@ if(isset($_POST['email'], $_POST['password'])) {
     $password = $_POST['password'];
 
     // Busca o usuário pelo email
-    $sql_code = "SELECT * FROM adms WHERE email = '$email'";
+    $sql_code = "SELECT * FROM adms WHERE email = '$email' AND status = 1";
     $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
 
     if($sql_query->num_rows == 1) {

@@ -2,6 +2,7 @@
 include('./includes/connection.php');
 include('./includes/protect.php');
 include('./includes/currentUserInfos.php');
+$displayType = 'option';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -13,6 +14,8 @@ include('./includes/currentUserInfos.php');
     <link rel="stylesheet" href="./styles/system.css">
     <link rel="stylesheet" href="./styles/global.css">
     <link rel="shortcut icon" href="./assets/logo.ico" type="image/x-icon">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.1.0/dist/css/multi-select-tag.css">
 
     <title>DVC - ADMIN</title>
 </head>
@@ -125,20 +128,23 @@ include('./includes/currentUserInfos.php');
                     <a href="./newTF.php" id="" class="userType-active"><i class='bx bx-coin'></i>VF</a>
                 </div>
             </div>
-            <form action="./actions/in_question.php" method="post">
-                <select name="TFO" id="TFO" style="    background-color: var(--logo-blue);color: white;font-weight: 900;
+            <form action="./actions/in_tf.php" method="post">
+                <select name="OTF" id="OTF" style="    background-color: var(--logo-blue);color: white;font-weight: 900;
 border-radius: 100px;margin-bottom: 15px;width: fit-content;">
                     <option value="" disabled selected>Veracidade</option>
-                    <option value="true">🟢 Verdadeiro</option>
-                    <option value="false">🔴 Falso</option>
+                    <option value="1">🟢 Verdadeiro</option>
+                    <option value="0">🔴 Falso</option>
                 </select>
                 <textarea class="question" name="question" placeholder="Escreva a questão aqui..."></textarea><br>
                 <textarea class="related_contents" name="related_contents" rows="4" cols="50"
                     placeholder='Liste suas referências ou Conteúdos Relacionados...'></textarea><br>
-                <div id="aboutQuestions" style="display: flex!important; flex-wrap: wrap!important;">
-                    <input type="text" name="nextId" id="nextId" disabled placeholder="#13" value="#13"
+                <div id="aboutQuestions" style="display: flex!important; flex-wrap: wrap!important;gap: 15px;">
+
+                    <input type="text" name="nextId" id="nextId" disabled
+                        value="<?php $displayCode = 'show'; include_once('./actions/get_nxtCode.php');?>"
                         style="text-align: center;">
-                    <select id="ano" name="ano">
+
+                    <select id="year" name="year">
                         <option value="">Ano da questão</option>
                         <script>
                         for (let ano = 1980; ano <= 2030; ano++) {
@@ -148,50 +154,60 @@ border-radius: 100px;margin-bottom: 15px;width: fit-content;">
                     </select>
                     <input type="text" name="keys" placeholder="Palavras chaves">
 
-                    <select>
+
+                    <select name="subject">
                         <?php
-                        include_once('./actions/get_disciplines.php');
-                        ?>
+    include_once('./actions/get_subjects.php');
+    ?>
                     </select>
-                    <select>
+                    <select name="banca">
                         <?php
-                        include_once('./actions/get_subjects.php');
-                        ?>
+    include_once('./actions/get_bancas.php');
+    ?>
                     </select>
-                    <select>
+                    <select name="job_role">
                         <?php
-                        include_once('./actions/get_bancas.php');
-                        ?>
+    include_once('./actions/get_job_roles.php');
+    ?>
                     </select>
-                    <select>
-                        <?php
-                        include_once('./actions/get_job_roles.php');
-                        ?>
+
+
+                    <select name="qType" id="" disabled>
+                        <option value="TF">Verdadeiro ou Falso</option>
                     </select>
-                    <select name="" id="">
-                        <option value="">Selecione o nível</option>
-                        <option value="">Fundamental</option>
-                        <option value="">Médio</option>
-                        <option value="">Superior</option>
-                    </select>
-                    <select>
-                        <?php
-                        include_once('./actions/get_courses.php');
-                        ?>
-                    </select>
-                    <select name="" id="" disabled>
-                        <option value="">Multipla Escolha</option>
-                    </select>
-                    <select name="" id="">
+                    <select name="level">
                         <option value="">Selecione a dificuldade</option>
-                        <option value="">Fácil</option>
-                        <option value="">Médio</option>
-                        <option value="">Difícil</option>
+                        <option value="facil">Fácil</option>
+                        <option value="medio">Médio</option>
+                        <option value="dificil">Difícil</option>
                     </select>
-                    <select>
+                    <label for="course">Formação</label>
+                    <select name="course[]" id="courses" multiple>
                         <?php
-                        include_once('./actions/get_functions.php');
-                        ?>
+    $displayType = 'option';
+    include_once('./actions/get_courses.php');
+    ?>
+                    </select>
+                    <label for="course">Disciplina</label>
+                    <select name="discipline[]" id="disciplines" multiple>
+                        <?php
+    $displayType = 'option';
+    include_once('./actions/get_disciplines.php');
+    ?>
+                    </select>
+                    <label for="course">Atuação</label>
+                    <select name="job_function[]" id="job_funcions" multiple>
+                        <?php
+       $displayType = 'option';
+    include_once('./actions/get_jobFunctions.php');
+    ?>
+                    </select>
+                    <label for="course">Nível</label>
+                    <select name="grade_level[]" id="grade_levels" multiple>
+                        <option value="">Selecione o nível</option>
+                        <option value="fundamental">Fundamental</option>
+                        <option value="médio">Médio</option>
+                        <option value="superior">Superior</option>
                     </select>
                 </div>
                 <input type="submit" value="Cadastrar no banco de dados" id="cadbtn">
@@ -205,6 +221,13 @@ border-radius: 100px;margin-bottom: 15px;width: fit-content;">
     <script src="./scripts/richtextarea.js"></script>
     <script src="./scripts/system.js"></script>
     <script type="module" src="./scripts/spa.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.1.0/dist/js/multi-select-tag.js"></script>]
+    <script>
+    new MultiSelectTag('disciplines')
+    new MultiSelectTag('grade_levels')
+    new MultiSelectTag('job_funcions')
+    new MultiSelectTag('courses')
+    </script>
 </body>
 
 </html>

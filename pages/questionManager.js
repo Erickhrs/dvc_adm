@@ -258,7 +258,7 @@ fetch('./actions/get_questions.php')
                     const tr = document.createElement('tr');
                     tr.innerHTML = `
                     <td class="questionTD"><p style="width: fit-content;text-align: left; height: 100px;overflow-y: auto;max-width">${data.question}</p></td>
-                    <td>${data.correct}</td>
+                    <td>${data.answer}</td>
                     <td>${data.adms_id}</td>
                     <td>${data.created_at}</td>
                      <td class='${data.status}_status'>${data.status}</td>

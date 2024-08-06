@@ -132,7 +132,7 @@ $displayType = 'option';
             <form action="./actions/in_question.php" method="post">
                 <textarea class="question" name="question" placeholder="Escreva a questão aqui..."></textarea><br>
                 <select name="answer" id="answer" style="    background-color: var(--logo-blue);color: white;font-weight: 900;
-border-radius: 100px;margin-bottom: 15px;width: fit-content;">
+border-radius: 100px;margin-bottom: 15px;width: fit-content;" required>
                     <option value="" disabled selected>Alternativa correta</option>
                     <option value="oa">A</option>
                     <option value="ob">B</option>
@@ -140,14 +140,14 @@ border-radius: 100px;margin-bottom: 15px;width: fit-content;">
                     <option value="od">D</option>
                     <option value="oe">E</option>
                 </select>
-                <textarea class="question_option" name="oa"
-                    placeholder="Escreva a alternativa A aqui..."></textarea><br>
-                <textarea class="question_option" name="ob"
-                    placeholder="Escreva a alternativa B aqui..."></textarea><br>
-                <textarea class="question_option" name="oc"
-                    placeholder="Escreva a alternativa C aqui..."></textarea><br>
-                <textarea class="question_option" name="od"
-                    placeholder="Escreva a alternativa D aqui..."></textarea><br>
+                <textarea class="question_option" name="oa" placeholder="Escreva a alternativa A aqui..."
+                    required></textarea><br>
+                <textarea class="question_option" name="ob" placeholder="Escreva a alternativa B aqui..."
+                    required></textarea><br>
+                <textarea class="question_option" name="oc" placeholder="Escreva a alternativa C aqui..."
+                    required></textarea><br>
+                <textarea class="question_option" name="od" placeholder="Escreva a alternativa D aqui..."
+                    required></textarea><br>
                 <textarea class="question_option" name="oe"
                     placeholder="Escreva a alternativa E aqui..."></textarea><br>
                 <textarea class="related_contents" name="related_contents" rows="4" cols="50"
@@ -157,9 +157,9 @@ border-radius: 100px;margin-bottom: 15px;width: fit-content;">
 
                     <input type="text" name="nextId" id="nextId" disabled
                         value="<?php $displayCode = 'show'; include_once('./actions/get_nxtCode.php');?>"
-                        style="text-align: center;">
+                        style="text-align: center;" required>
 
-                    <select id="year" name="year">
+                    <select id="year" name="year" required>
                         <option value="">Ano da questão</option>
                         <script>
                         for (let ano = 1980; ano <= 2030; ano++) {
@@ -170,33 +170,33 @@ border-radius: 100px;margin-bottom: 15px;width: fit-content;">
                     <input type="text" name="keys" placeholder="Palavras chaves">
 
 
-                    <select name="subject">
+                    <select name="subject" required>
                         <?php
                         include_once('./actions/get_subjects.php');
                         ?>
                     </select>
-                    <select name="banca">
+                    <select name="banca" required>
                         <?php
                         include_once('./actions/get_bancas.php');
                         ?>
                     </select>
-                    <select name="job_role">
+                    <select name="job_role" required>
                         <?php
                         include_once('./actions/get_job_roles.php');
                         ?>
                     </select>
 
 
-                    <select name="qType" id="" disabled>
+                    <select name="qType" id="" disabled required>
                         <option value="mult">Multipla Escolha</option>
                     </select>
-                    <select name="level">
+                    <select name="level" required>
                         <option value="">Selecione a dificuldade</option>
                         <option value="facil">Fácil</option>
                         <option value="medio">Médio</option>
                         <option value="dificil">Difícil</option>
                     </select>
-                    <label for="course">Formação</label>
+                    <label for="course" required>Formação</label>
                     <select name="course[]" id="courses" multiple>
                         <?php
                         $displayType = 'option';
@@ -204,21 +204,21 @@ border-radius: 100px;margin-bottom: 15px;width: fit-content;">
                         ?>
                     </select>
                     <label for="course">Disciplina</label>
-                    <select name="discipline[]" id="disciplines" multiple>
+                    <select name="discipline[]" id="disciplines" multiple required>
                         <?php
                         $displayType = 'option';
                         include_once('./actions/get_disciplines.php');
                         ?>
                     </select>
                     <label for="course">Atuação</label>
-                    <select name="job_function[]" id="job_funcions" multiple>
+                    <select name="job_function[]" id="job_funcions" multiple required>
                         <?php
                            $displayType = 'option';
                         include_once('./actions/get_jobFunctions.php');
                         ?>
                     </select>
                     <label for="course">Nível</label>
-                    <select name="grade_level[]" id="grade_levels" multiple>
+                    <select name="grade_level[]" id="grade_levels" multiple required>
                         <option value="">Selecione o nível</option>
                         <option value="fundamental">Fundamental</option>
                         <option value="médio">Médio</option>

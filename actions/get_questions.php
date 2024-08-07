@@ -25,6 +25,11 @@ function getAdmName($mysqli, $id){
 
 if ($result->num_rows > 0){
     while($row = $result->fetch_assoc()) {
+        if ($row['answer'] == 1) {
+            $row['answer'] = "Verdadeiro";
+        } elseif ($row['answer'] == 0) {
+            $row['answer'] = "Falso";
+        } 
         $row['adms_id'] = getAdmName($mysqli,$row['adms_id']);
         $row['status'] = ($row['status'] == 1) ? "ativo" : "desativo";
         $users[] = $row;

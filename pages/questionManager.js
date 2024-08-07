@@ -276,7 +276,7 @@ export default () => {
                      
         `;
                     tr.querySelector('.questionTD').addEventListener('click', () => {
-                        window.location.href = `./editQuestion.php?id=${data.ID}`; // Substitua 'sua_pagina.html' pelo nome da sua página
+                        window.location.href = `./question.php?id=${data.ID}`; // Substitua 'sua_pagina.html' pelo nome da sua página
                     });
 
                     tbody.appendChild(tr);

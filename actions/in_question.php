@@ -75,6 +75,7 @@ $stmt->bind_param(
 
 if ($stmt->execute()) {
     echo "Novo registro inserido com sucesso!";
+    newHistoryEvent($_SESSION['id'], "Adicionou a questão (#". $ID . " - " . $name . ")", date('Y-m-d H:i:s'), 'ALTA');
 } else {
     echo "Erro ao inserir o registro: " . $stmt->error;
 }

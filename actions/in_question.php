@@ -2,6 +2,7 @@
 session_start();
 include_once('../includes/connection.php');
 include_once('../includes/protect.php');
+include_once('../includes/history.php');
 $displayCode = 'hide';
 include_once('../actions/get_nxtCode.php');
 //var_dump($_POST);
@@ -74,18 +75,7 @@ $stmt->bind_param(
 );
 
 if ($stmt->execute()) {
-    echo "Novo registro inserido com sucesso!";
-    newHistoryEvent($_SESSION['id'], "Adicionou a questão (#". $ID . " - " . $name . ")", date('Y-m-d H:i:s'), 'ALTA');
-} else {
-    echo "Erro ao inserir o registro: " . $stmt->error;
-}
-
-
-//---------------------------------------------------------------
-
-
- 
-$alternative = "A";
+    $alternative = "A";
 $questionValue = isCorrect($answer, 'oa');
 $oa = isset($_POST['oa']) ? $_POST['oa'] : "";
 
@@ -198,5 +188,16 @@ if ($stmt->execute()) {
 }
 
 $stmt->close();
-     
+newHistoryEvent($_SESSION['id'], "Criou uma questão MULT - " . $next_id, date('Y-m-d H:i:s'), 'BAIXA');  
+header('Location: ../question.php?id='. $next_id);
+} else {
+    echo "Erro ao inserir o registro: " . $stmt->error;
+}
+
+
+//---------------------------------------------------------------
+
+
+ 
+
 ?>

@@ -135,8 +135,7 @@ border-radius: 100px;margin-bottom: 15px;width: fit-content;" required>
                     <option value="1">🟢 Verdadeiro</option>
                     <option value="0">🔴 Falso</option>
                 </select>
-                <textarea class="question" name="question" placeholder="Escreva a questão aqui..."
-                    required></textarea><br>
+                <textarea class="question" name="question" placeholder="Escreva a questão aqui..."></textarea><br>
                 <textarea class="related_contents" name="related_contents" rows="4" cols="50"
                     placeholder='Liste suas referências ou Conteúdos Relacionados...'></textarea><br>
                 <div id="aboutQuestions" style="display: flex!important; flex-wrap: wrap!important;gap: 15px;">

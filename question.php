@@ -9,8 +9,8 @@ function searchName($mysqli, $name, $chart, $id){
     $sql = "SELECT $name FROM $chart WHERE ID = $id";
     $resultName = $mysqli->query($sql);
     
-    if ($resultName ->num_rows>0){
-        $final = $resultName ->fetch_assoc();
+    if ($resultName->num_rows > 0){
+        $final = $resultName->fetch_assoc();
         return $final[$name];
     }
     else {
@@ -19,10 +19,10 @@ function searchName($mysqli, $name, $chart, $id){
 }
 
 // Preparar e executar a primeira consulta
-$stmt = $mysqli->prepare("SELECT question, adms_ID, question_type, status, year, level, grade_level, created_at, subject, banca, job_function, job_role, course, discipline, related_contents, `keys` FROM questions WHERE ID = ?");
+$stmt = $mysqli->prepare("SELECT question, adms_ID, question_type, status, year, level, grade_level, created_at, subject, banca, job_function, job_role, course, discipline, related_contents, `keys`, answer FROM questions WHERE ID = ?");
 $stmt->bind_param("s", $id);
 $stmt->execute();
-$stmt->bind_result($question, $adms_ID, $question_type, $status, $year, $level, $grade_level, $created_at, $subject, $banca, $job_function, $job_role, $course, $discipline, $related_contents, $keys);
+$stmt->bind_result($question, $adms_ID, $question_type, $status, $year, $level, $grade_level, $created_at, $subject, $banca, $job_function, $job_role, $course, $discipline, $related_contents, $keys, $answer);
 
 if (!$stmt->fetch()) {
     echo 'Erro ao buscar a pergunta.';
@@ -49,12 +49,9 @@ if ($result->num_rows > 0) {
             );
         }
     }
-} else {
-    echo "Nenhuma resposta encontrada para o ID $id.";
 }
 
 $stmt->close();
-//$mysqli->close();
 ?>
 
 <!DOCTYPE html>
@@ -119,9 +116,9 @@ $stmt->close();
 </head>
 
 <body>
-    <section id="sidebar"><a class="brand"><img src="./assets/logo.png" alt=" logo" style="width: 137px; margin-left: 17px;
-margin-right: 15px">
-        </a>
+    <section id="sidebar">
+        <a class="brand"><img src="./assets/logo.png" alt=" logo"
+                style="width: 137px; margin-left: 17px; margin-right: 15px"></a>
         <ul class="side-menu top">
             <li><a href="./system.php#dashboard"><i class='bx bxs-dashboard'></i><span class="text">Painel</span></a>
             </li>
@@ -140,19 +137,24 @@ margin-right: 15px">
         </ul>
     </section>
     <section id="content">
-        <nav><i class='bx bx-menu'></i><a class="nav-link">Categorias</a>
+        <nav>
+            <i class='bx bx-menu'></i>
+            <a class="nav-link">Categorias</a>
             <form action="#">
-                <div class="form-input"><input type="search" placeholder="Search..."><button type="submit"
-                        class="search-btn"><i class='bx bx-search'></i></button></div>
-            </form><input type="checkbox" id="switch-mode" hidden><label for="switch-mode"
-                class="switch-mode"></label><a class="notification"><i class='bx bxs-bell'></i><span
-                    class="num">8</span></a><a href="./profile.php" class="profile"><img
-                    src=<?php echo "$picture"?>></a>
+                <div class="form-input">
+                    <input type="search" placeholder="Search...">
+                    <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
+                </div>
+            </form>
+            <input type="checkbox" id="switch-mode" hidden>
+            <label for="switch-mode" class="switch-mode"></label>
+            <a class="notification"><i class='bx bxs-bell'></i><span class="num">8</span></a>
+            <a href="./profile.php" class="profile"><img src=<?php echo "$picture"?>></a>
         </nav>
         <main id="root">
             <div class="head-title">
                 <div class="left">
-                    <h1><?php echo "#". $id ?></h1>
+                    <h1><?php echo "#" . $id ?></h1>
                     <ul class="breadcrumb">
                         <li><a>Gerenciador Questões</a></li>
                         <li><i class='bx bx-chevron-right'></i></li>
@@ -163,103 +165,93 @@ margin-right: 15px">
                 </div>
             </div>
             <div id="atrs">
-                <?php if(!empty($keys)){echo "<span class="."span_keys".">".$keys."</span>";}else{echo "<span class="."span_keys".">"."vazio"."</span>";}?>
-                <?php if(!empty($year)){echo "<span class="."span_about".">".$year."</span>";}else{echo "<span class="."span_keys".">"."vazio"."</span>";}?>
-                <?php if(!empty($banca)){echo "<span class="."span_about".">".searchName($mysqli, 'banca', 'bancas', $banca)."</span>";}else{echo "<span class="."span_keys".">"."vazio"."</span>";}?>
-                <?php if(!empty($level)){echo "<span class="."span_about".">".$level."</span>";}else{echo "<span class="."span_keys".">"."vazio"."</span>";}?>
-                <?php if (!empty($question_type)) {echo '<span class="span_about">';if ($question_type == 'mult') {  echo 'multipla escolha';
-    } else {
-        echo 'Verdadeiro ou Falso';
-    }
-    echo '</span>';
-} else {
-    echo '<span class="span_keys">vazio</span>';
-}
-?>
-
-                <?php if(!empty($subject)){echo "<span class="."span_filter".">".searchName($mysqli, 'subject', 'subjects', $subject)."</span>";}else{echo "<span class="."span_keys".">"."vazio"."</span>";}?>
-                <?php if(!empty($job_role)){echo "<span class="."span_filter".">".searchName($mysqli, 'job_role', 'job_roles', $job_role)."</span>";}else{echo "<span class="."span_keys".">"."vazio"."</span>";}?>
+                <?php if(!empty($keys)){echo "<span class='span_keys'>".$keys."</span>";}else{echo "<span class='span_keys'>vazio</span>";}?>
+                <?php if(!empty($year)){echo "<span class='span_about'>".$year."</span>";}else{echo "<span class='span_keys'>vazio</span>";}?>
+                <?php if(!empty($banca)){echo "<span class='span_about'>".searchName($mysqli, 'banca', 'bancas', $banca)."</span>";}else{echo "<span class='span_keys'>vazio</span>";}?>
+                <?php if(!empty($level)){echo "<span class='span_about'>".$level."</span>";}else{echo "<span class='span_keys'>vazio</span>";}?>
+                <?php 
+                    if (!empty($question_type)) {
+                        echo '<span class="span_about">';
+                        if ($question_type == 'mult') {  
+                            echo 'multipla escolha';
+                        } else {
+                            echo 'Verdadeiro ou Falso';
+                        }
+                        echo '</span>';
+                    } else {
+                        echo '<span class="span_keys">vazio</span>';
+                    }
+                ?>
+                <?php if(!empty($subject)){echo "<span class='span_filter'>".searchName($mysqli, 'subject', 'subjects', $subject)."</span>";}else{echo "<span class='span_keys'>vazio</span>";}?>
+                <?php if(!empty($job_role)){echo "<span class='span_filter'>".searchName($mysqli, 'job_role', 'job_roles', $job_role)."</span>";}else{echo "<span class='span_keys'>vazio</span>";}?>
             </div>
             <div class="table-data">
-                <div class="order"><label for="question"><i class='bx bx-note'></i> Questão</label><span><?php if ($question) {
-        echo $question;
-    }
-
-    else {
-        echo 'não encontrado';
-    }
-
-    ?></span></div>
+                <div class="order"
+                    style="<?php if($question_type=='tf' && $answer==1){ echo 'border-bottom: 5px solid #afe3af';} if($question_type=='tf' && $answer==0){echo 'border-bottom: 5px solid #ff9c9c';}?>">
+                    <label for="question"><i class='bx bx-note'></i> Questão</label>
+                    <span><?php if ($question) { echo $question; } else { echo 'não encontrado'; } ?></span>
+                </div>
             </div>
-            <div id="answers_container">
+            <div id="answers_container" style="<?php if($question_type=='tf'){ echo 'display:none!important';}?>">
                 <div class="table-data">
                     <div class="order"
                         style="<?php foreach ($alternatives["A"] as $info) { if ($info['correct']==1){echo 'background-color: #b5e0b5;';}} ?>">
-                        <label for="OA">Alternativa A</label><span><?php foreach ($alternatives["A"] as $info) {
-        echo $info["answer"] . "\n";
-    }
-
-    ?></span>
+                        <label for="OA">Alternativa A</label>
+                        <span><?php foreach ($alternatives["A"] as $info) { echo $info["answer"] . "\n"; } ?></span>
                     </div>
                 </div>
                 <div class="table-data">
                     <div class="order"
                         style="<?php foreach ($alternatives["B"] as $info) { if ($info['correct']==1){echo 'background-color: #b5e0b5;';}} ?>">
-                        <label for="OB">Alternativa B</label><span><?php foreach ($alternatives["B"] as $info) {
-        echo $info["answer"] . "\n";
-    }
-
-    ?></span>
+                        <label for="OB">Alternativa B</label>
+                        <span><?php foreach ($alternatives["B"] as $info) { echo $info["answer"] . "\n"; } ?></span>
                     </div>
                 </div>
                 <div class="table-data">
                     <div class="order"
                         style="<?php foreach ($alternatives["C"] as $info) { if ($info['correct']==1){echo 'background-color: #b5e0b5;';}} ?>">
-                        <label for="OC">Alternativa C</label><span><?php foreach ($alternatives["C"] as $info) {
-        echo $info["answer"] . "\n";
-    }
-
-    ?></span>
+                        <label for="OC">Alternativa C</label>
+                        <span><?php foreach ($alternatives["C"] as $info) { echo $info["answer"] . "\n"; } ?></span>
                     </div>
                 </div>
                 <div class="table-data">
                     <div class="order"
                         style="<?php foreach ($alternatives["D"] as $info) { if ($info['correct']==1){echo 'background-color: #b5e0b5;';}} ?>">
-                        <label for="OD">Alternativa D</label><span><?php foreach ($alternatives["D"] as $info) {
-        echo $info["answer"] . "\n";
-    }
-
-    ?></span>
+                        <label for="OD">Alternativa D</label>
+                        <span><?php foreach ($alternatives["D"] as $info) { echo $info["answer"] . "\n"; } ?></span>
                     </div>
                 </div>
                 <?php
-foreach ($alternatives["E"] as $info) {
-    if (!empty($info['answer'])) {
-        echo ' <div class="table-data">
-            <div class="order"
-                style="';
                 foreach ($alternatives["E"] as $info) {
-                    if ($info["correct"] == 1) {
-                        echo 'background-color: #b5e0b5;';
+                    if (!empty($info['answer'])) {
+                        echo ' <div class="table-data">
+                            <div class="order" style="';
+                            foreach ($alternatives["E"] as $info) {
+                                if ($info["correct"] == 1) {
+                                    echo 'background-color: #b5e0b5;';
+                                }
+                            }
+                        echo '">
+                                <label for="OE">Alternativa E</label>
+                                <span>';
+                                foreach ($alternatives["E"] as $info) {
+                                    echo $info["answer"] . "\n";
+                                }
+                        echo '</span>
+                            </div>
+                        </div>';
                     }
                 }
-        echo '">
-                <label for="OE">Alternativa E</label><span>';
-                foreach ($alternatives["E"] as $info) {
-                    echo $info["answer"] . "\n";
-                }
-        echo '</span>
-            </div>
-        </div>';
-    }
-}
-?>
+                ?>
             </div>
             <div id="answers_container">
                 <div class="table-data">
                     <div class="order">
-                        <label for="related_content"><i class='bx bx-paperclip'></i>
-                            Relacionados</label><span><?php echo $related_contents; ?></span>
+                        <label for="related_content"><i class='bx bx-paperclip'></i> Relacionados</label>
+                        <span><?php echo $related_contents; ?></span>
+                    </div>
+                </div>
+            </div>
         </main>
     </section>
     <script src="https://cdn.tiny.cloud/1/f8nx31hueqvfhjpkvu3nqmwof3kll4hmdsumuuklyf7ypoj0/tinymce/7/tinymce.min.js"
@@ -267,9 +259,7 @@ foreach ($alternatives["E"] as $info) {
     <script src="./scripts/richtextarea.js"></script>
     <script src="./scripts/system.js"></script>
     <script type="module" src="./scripts/spa.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.1.0/dist/js/multi-select-tag.js">
-    </script>
-    <script></script>
+    <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.1.0/dist/js/multi-select-tag.js"></script>
 </body>
 
 </html>

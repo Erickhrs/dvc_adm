@@ -20,7 +20,7 @@ include('./includes/currentUserInfos.php');
 <body>
 
     <section id="sidebar">
-        <a  class="brand">
+        <a class="brand">
             <img src="./assets/logo.png" alt=" logo" style="width: 137px; margin-left: 17px;
 			margin-right: 15px">
         </a>
@@ -85,7 +85,7 @@ include('./includes/currentUserInfos.php');
         <!-- NAVBAR -->
         <nav>
             <i class='bx bx-menu'></i>
-            <a  class="nav-link">Categorias</a>
+            <a class="nav-link">Categorias</a>
             <form action="#">
                 <div class="form-input">
                     <input type="search" placeholder="Search...">
@@ -94,7 +94,7 @@ include('./includes/currentUserInfos.php');
             </form>
             <input type="checkbox" id="switch-mode" hidden>
             <label for="switch-mode" class="switch-mode"></label>
-            <a  class="notification">
+            <a class="notification">
                 <i class='bx bxs-bell'></i>
                 <span class="num">8</span>
             </a>
@@ -111,11 +111,11 @@ include('./includes/currentUserInfos.php');
                     <h1>Novo Atributo</h1>
                     <ul class="breadcrumb">
                         <li>
-                            <a >Painel</a>
+                            <a>Painel</a>
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
-                            <a class="active" >Home</a>
+                            <a class="active">Home</a>
                         </li>
                     </ul>
                 </div>
@@ -127,7 +127,7 @@ include('./includes/currentUserInfos.php');
                     <a href="./bancas.php" id=""><i class='bx bx-coin'></i>Banca</a>
                     <a href="./jobRoles.php" id=""><i class='bx bx-coin'></i>Cargo</a>
                     <a href="./courses.php" id=""><i class='bx bx-coin'></i>Formação</a>
-                    <a href="" id="./jobFunctions.php"><i class='bx bx-coin'></i>Atuação</a>
+                    <a href="./jobFunctions.php"><i class='bx bx-coin'></i>Atuação</a>
                 </div>
             </div>
             <div class="atrContainers">
@@ -175,7 +175,7 @@ include('./includes/currentUserInfos.php');
         <!-- MAIN -->
     </section>
     <!-- CONTENT -->
-    <script src=" https://cdn.tiny.cloud/1/f8nx31hueqvfhjpkvu3nqmwof3kll4hmdsumuuklyf7ypoj0/tinymce/7/tinymce.min.js"
+    <script src=" https://cdn.tiny.cloud/1/qk0ibpi1dj92lq7s1xyzxsuyvucx13dpmizy96s218ufe66x/tinymce/7/tinymce.min.js"
         referrerpolicy="origin"></script>
     <script src="./scripts/richtextarea.js"></script>
     <script src="./scripts/system.js"></script>

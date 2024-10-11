@@ -175,7 +175,7 @@ include('./includes/currentUserInfos.php');
         <!-- MAIN -->
     </section>
     <!-- CONTENT -->
-    <script src=" https://cdn.tiny.cloud/1/f8nx31hueqvfhjpkvu3nqmwof3kll4hmdsumuuklyf7ypoj0/tinymce/7/tinymce.min.js"
+    <script src=" https://cdn.tiny.cloud/1/qk0ibpi1dj92lq7s1xyzxsuyvucx13dpmizy96s218ufe66x/tinymce/7/tinymce.min.js"
         referrerpolicy="origin"></script>
     <script src="./scripts/richtextarea.js"></script>
     <script src="./scripts/system.js"></script>

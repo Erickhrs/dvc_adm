@@ -29,100 +29,14 @@ export default () => {
                     <div class="head" style="margin-bottom:0px!important">
                         <a href="./newQuestion.php" class="newQuestionBtn"><i class='bx bx-plus'></i>Nova questão</a>
                         <a href="./disciplines.php" class="newQuestionBtn"><i class='bx bx-plus'></i>Novo atributo<a>
+                        <a href="./newExam.php" class="newQuestionBtn"><i class='bx bx-plus'></i>Novo Simulado<a>
+                        <a href="./exams_list.php" class="newQuestionBtn"><i class='bx bx-book-open'></i>Gerenciar Simulados<a>
                     </div>
                    
                 </div>
             </div>
 
-<form action="" method="get">
-    <div id="filter1">
-        <input type="search" placeholder="Palavra chave">
-        <select id="discipline" name="discipline">
-            <option value="">Disciplinas</option>
-            <option value="">EXEMPLO 1</option>
-            <option value="">EXEMPLO 2</option>
-        </select>
-        <select id="subjects" name="">
-            <option value="">Assunto</option>
-            <option value="">EXEMPLO 1</option>
-            <option value="">EXEMPLO 2</option>
-        </select>
-        <select id="banca" name="">
-            <option value="">Banca</option>
-            <option value="">EXEMPLO 1</option>
-            <option value="">EXEMPLO 2</option>
-        </select>
-        <select id="institution" name="institution">
-            <option value="">Instituto</option>
-            <option value="">EXEMPLO 1</option>
-            <option value="">EXEMPLO 2</option>
-        </select>
-        <select id="year" name="year">
-            <option value="">Ano</option>
-            <option value="">2004</option>
-            <option value="">2005</option>
-        </select>
-        <select id="job_position" name="job_position">
-            <option value="">Cargo</option>
-            <option value="">EXEMPLO 1</option>
-            <option value="">EXEMPLO 2</option>
-        </select>
-        <select id="grade_level" name="grade_level">
-            <option value="">Nível</option>
-            <option value="">EXEMPLO 1</option>
-            <option value="">EXEMPLO 2</option>
-        </select>
-        <select id="course" name="course">
-            <option value="">Formação</option>
-            <option value="">EXEMPLO 1</option>
-            <option value="">EXEMPLO 2</option>
-        </select>
-        <select id="area_of_expertise" name="area_of_expertise">
-            <option value="">Atuação</option>
-            <option value="">EXEMPLO 1</option>
-            <option value="">EXEMPLO 2</option>
-        </select>
-        <select id="question_type" name="question_type">
-            <option value="">Modalidade</option>
-            <option value="">EXEMPLO 1</option>
-            <option value="">EXEMPLO 2</option>
-        </select>
-        <select id="level" name="level">
-            <option value="">Dificuldadee</option>
-            <option value="">EXEMPLO 1</option>
-            <option value="">EXEMPLO 2</option>
-        </select>
-    </div>
-    <div id="filter2">
-        <span>Excluir Questões:</span>
-        <label for="opcao1">
-            <input type="checkbox" name="opcoes" value="opcao1"> Dos meus cadernos
-        </label>
-        <label for="opcao2">
-            <input type="checkbox" name="opcoes" value="opcao2"> Dos meus Simulados
-        </label><br><br>
-        <span>Questões com:</span>
-        <label for="opcao3">
-            <input type="checkbox" name="opcoes" value="opcao3"> Gabarito comentado
-        </label>
-        <label for="opcao4">
-            <input type="checkbox" name="opcoes" value="opcao4"> Comentários
-        </label>
-        <label for="opcao5">
-            <input type="checkbox" name="opcoes" value="opcao5"> Meus Comentários
-        </label>
-        <label for="opcao6">
-            <input type="checkbox" name="opcoes" value="opcao6"> Aulas
-        </label>
-        <label for="opcao7">
-            <input type="checkbox" name="opcoes" value="opcao7"> Minhas anotações
-        </label>
-    </div>
-    <div id="btns">
-        <button><ion-icon name="reload-outline"></ion-icon> Limpar</button>
-        <input type="submit" value="FILTRAR">
-    </div>
-</form>
+
 
 <ul class="box-info">
 <li>
@@ -144,8 +58,6 @@ export default () => {
     <div class="order">
         <div class="head">
             <h3>Resultados</h3>
-            <i class='bx bx-search'></i>
-            <i class='bx bx-filter'></i>
         </div>
         <table>
             <thead>
@@ -267,7 +179,7 @@ export default () => {
                 data.forEach(data => {
                     const tr = document.createElement('tr');
                     tr.innerHTML = `
-                    <td class="questionTD"><p style="width: fit-content;text-align: left; height: 100px;overflow-y: auto;max-width">${data.question}</p></td>
+                    <td class="questionTD"><p style="width: fit-content;text-align: left;overflow-y: auto;max-width">${data.question}</p></td>
                     <td>${data.answer}</td>
                     <td>${data.adms_id}</td>
                     <td>${data.created_at}</td>

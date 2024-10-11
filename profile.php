@@ -20,7 +20,7 @@ include('./includes/currentUserInfos.php');
 <body>
 
     <section id="sidebar">
-        <a  class="brand">
+        <a class="brand">
             <img src="./assets/logo.png" alt=" logo" style="width: 137px; margin-left: 17px;
 			margin-right: 15px">
         </a>
@@ -85,7 +85,7 @@ include('./includes/currentUserInfos.php');
         <!-- NAVBAR -->
         <nav>
             <i class='bx bx-menu'></i>
-            <a  class="nav-link">Categorias</a>
+            <a class="nav-link">Categorias</a>
             <form action="#">
                 <div class="form-input">
                     <input type="search" placeholder="Search...">
@@ -94,7 +94,7 @@ include('./includes/currentUserInfos.php');
             </form>
             <input type="checkbox" id="switch-mode" hidden>
             <label for="switch-mode" class="switch-mode"></label>
-            <a  class="notification">
+            <a class="notification">
                 <i class='bx bxs-bell'></i>
                 <span class="num">8</span>
             </a>
@@ -111,7 +111,7 @@ include('./includes/currentUserInfos.php');
                     <h1>Perfil</h1>
                     <ul class="breadcrumb">
                         <li>
-                            <a >Painel</a>
+                            <a>Painel</a>
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
@@ -123,7 +123,7 @@ include('./includes/currentUserInfos.php');
             <ul class="userInfos">
                 <li>
                     <div class="editPersonalInfos">
-                        <a href="./ChangePassword.php"><i class='bx bxs-key' title="Atualizar senha"></i></a>
+                        <a href="./changePassword.php"><i class='bx bxs-key' title="Atualizar senha"></i></a>
                         <a href="./profileEdit.php"> <i class='bx bx-edit' title="Editar Informações do perfil"></i></a>
                     </div>
                     <img src=<?php echo "$picture" ?>>

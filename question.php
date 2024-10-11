@@ -154,7 +154,12 @@ $stmt->close();
         <main id="root">
             <div class="head-title">
                 <div class="left">
-                    <h1><?php echo "#" . $id ?></h1>
+                    <h1><?php echo '#' .  $id ?></h1>
+                    <form action="edit_question.php" method="GET">
+                        <input type="hidden" name="id" value="<?php echo $id; ?>">
+                        <input type="hidden" name="type" value="<?php echo $question_type; ?>">
+                        <button type="submit">editar</button>
+                    </form>
                     <ul class="breadcrumb">
                         <li><a>Gerenciador Questões</a></li>
                         <li><i class='bx bx-chevron-right'></i></li>
@@ -254,7 +259,7 @@ $stmt->close();
             </div>
         </main>
     </section>
-    <script src="https://cdn.tiny.cloud/1/f8nx31hueqvfhjpkvu3nqmwof3kll4hmdsumuuklyf7ypoj0/tinymce/7/tinymce.min.js"
+    <script src="https://cdn.tiny.cloud/1/qk0ibpi1dj92lq7s1xyzxsuyvucx13dpmizy96s218ufe66x/tinymce/7/tinymce.min.js"
         referrerpolicy="origin"></script>
     <script src="./scripts/richtextarea.js"></script>
     <script src="./scripts/system.js"></script>

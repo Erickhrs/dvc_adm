@@ -79,7 +79,8 @@ $result = $mysqli->query("SELECT id, title, description, questions, created_at F
         color: #888;
     }
 
-    .edit-button {
+    .edit-button,
+    .delete-button {
         background: none;
         border: none;
         color: var(--main-color);
@@ -87,6 +88,11 @@ $result = $mysqli->query("SELECT id, title, description, questions, created_at F
         font-size: 20px;
         display: flex;
         align-items: center;
+    }
+
+    .delete-button {
+        color: red;
+        margin-left: 10px;
     }
     </style>
 </head>
@@ -115,11 +121,20 @@ $result = $mysqli->query("SELECT id, title, description, questions, created_at F
                 <td><?php echo htmlspecialchars($row['description']); ?></td>
                 <td><?php echo htmlspecialchars($row['questions']); ?></td>
                 <td><?php echo htmlspecialchars(date('d/m/Y H:i', strtotime($row['created_at']))); ?></td>
-                <td>
+                <td style="display: flex;">
                     <form action="edit_exams.php" method="get" style="display:inline;">
                         <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                         <button type="submit" class="edit-button" title="Editar">
                             <i class="bx bx-edit"></i>
+                        </button>
+                    </form>
+
+                    <!-- Botão de exclusão -->
+                    <form action="./actions/delete_exam.php" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                        <button type="submit" class="delete-button" title="Excluir"
+                            onclick="return confirm('Tem certeza que deseja excluir este simulado?');">
+                            <i class="bx bx-trash"></i>
                         </button>
                     </form>
                 </td>

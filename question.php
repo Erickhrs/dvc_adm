@@ -5,18 +5,48 @@ include('./includes/currentUserInfos.php');
 $displayType = 'option';
 $id = $_GET['id'];
 
-function searchName($mysqli, $name, $chart, $id){
-    $sql = "SELECT $name FROM $chart WHERE ID = $id";
-    $resultName = $mysqli->query($sql);
-    
-    if ($resultName->num_rows > 0){
-        $final = $resultName->fetch_assoc();
-        return $final[$name];
-    }
-    else {
-        return 'ERRO';
+function searchName($mysqli, $name, $chart, $id) {
+    // Verifica se o ID contém um hífen ("-")
+    if (strpos($id, '-') !== false) {
+        // Separa os IDs em um array
+        $ids = explode('-', $id);
+        $names = [];
+
+        // Busca o nome para cada ID separado
+        foreach ($ids as $single_id) {
+            $sql = "SELECT $name FROM $chart WHERE ID = ?";
+            $stmt = $mysqli->prepare($sql);
+            $stmt->bind_param("i", $single_id); // 'i' para integer
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            if ($result->num_rows > 0) {
+                $final = $result->fetch_assoc();
+                $names[] = $final[$name]; // Adiciona o nome ao array
+            } else {
+                $names[] = 'ERRO'; // Adiciona 'ERRO' se o nome não for encontrado
+            }
+        }
+
+        // Junta os nomes novamente com "-"
+        return implode('-', $names);
+    } else {
+        // Caso o ID não tenha hífen, busca o nome normalmente
+        $sql = "SELECT $name FROM $chart WHERE ID = ?";
+        $stmt = $mysqli->prepare($sql);
+        $stmt->bind_param("i", $id); // 'i' para integer
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            $final = $result->fetch_assoc();
+            return $final[$name];
+        } else {
+            return 'ERRO';
+        }
     }
 }
+
 
 // Preparar e executar a primeira consulta
 $stmt = $mysqli->prepare("SELECT question, adms_ID, question_type, status, year, level, grade_level, created_at, subject, banca, job_function, job_role, course, discipline, related_contents, `keys`, answer FROM questions WHERE ID = ?");
@@ -158,7 +188,7 @@ $stmt->close();
                     <form action="edit_question.php" method="GET">
                         <input type="hidden" name="id" value="<?php echo $id; ?>">
                         <input type="hidden" name="type" value="<?php echo $question_type; ?>">
-                        <button type="submit">editar</button>
+                        <button type="submit" class="question_option"><i class='bx bx-edit-alt'></i> editar</button>
                     </form>
                     <ul class="breadcrumb">
                         <li><a>Gerenciador Questões</a></li>
@@ -189,6 +219,9 @@ $stmt->close();
                 ?>
                 <?php if(!empty($subject)){echo "<span class='span_filter'>".searchName($mysqli, 'subject', 'subjects', $subject)."</span>";}else{echo "<span class='span_keys'>vazio</span>";}?>
                 <?php if(!empty($job_role)){echo "<span class='span_filter'>".searchName($mysqli, 'job_role', 'job_roles', $job_role)."</span>";}else{echo "<span class='span_keys'>vazio</span>";}?>
+                <?php if(!empty($discipline)){echo "<span class='span_filter'>".searchName($mysqli, 'discipline', 'disciplines', $discipline)."</span>";}else{echo "<span class='span_keys'>vazio</span>";}?>
+                <?php if(!empty($course)){echo "<span class='span_filter'>".searchName($mysqli, 'course', 'courses', $course)."</span>";}else{echo "<span class='span_keys'>vazio</span>";}?>
+                <?php if(!empty($job_function)){echo "<span class='span_filter'>".searchName($mysqli, 'job_function', 'job_functions', $job_function)."</span>";}else{echo "<span class='span_keys'>vazio</span>";}?>
             </div>
             <div class="table-data">
                 <div class="order"

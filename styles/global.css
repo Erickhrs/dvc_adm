@@ -18,3 +18,22 @@
 #root {
     animation: fadeIn 1s ease-in-out;
 }
+
+.question_option{
+    border: none;
+    background-color: #ffffff;
+    color: #4aa7ff;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+.question_option:hover{
+    border: none;
+    background-color: #2196F3;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}

@@ -185,11 +185,30 @@ $stmt->close();
             <div class="head-title">
                 <div class="left">
                     <h1><?php echo '#' .  $id ?></h1>
-                    <form action="edit_question.php" method="GET">
-                        <input type="hidden" name="id" value="<?php echo $id; ?>">
-                        <input type="hidden" name="type" value="<?php echo $question_type; ?>">
-                        <button type="submit" class="question_option"><i class='bx bx-edit-alt'></i> editar</button>
-                    </form>
+                    <DIV style="display: flex; gap: 10px;">
+                        <form action="edit_question.php" method="GET">
+                            <input type="hidden" name="id" value="<?php echo $id; ?>">
+                            <input type="hidden" name="type" value="<?php echo $question_type; ?>">
+                            <button type="submit" class="question_option"><i class='bx bx-edit-alt'></i> editar</button>
+                        </form>
+                        <form action="./actions/delete_question.php" method="POST"
+                            onsubmit="return confirmDoubleDelete();">
+                            <input type="hidden" name="id" value="<?php echo $id; ?>">
+                            <input type="hidden" name="type" value="<?php echo $question_type; ?>">
+                            <button type="submit" class="question_option">
+                                <i class='bx bx-trash-alt'></i> Excluir
+                            </button>
+                        </form>
+
+                        <script>
+                        function confirmDoubleDelete() {
+                            if (confirm("Tem certeza que deseja excluir esta questão?")) {
+                                return confirm("Tem certeza mesmo? Esta ação não poderá ser desfeita.");
+                            }
+                            return false;
+                        }
+                        </script>
+                    </DIV>
                     <ul class="breadcrumb">
                         <li><a>Gerenciador Questões</a></li>
                         <li><i class='bx bx-chevron-right'></i></li>

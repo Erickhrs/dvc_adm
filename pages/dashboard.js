@@ -41,14 +41,7 @@ export default () => {
         <i class='bx bxs-group' ></i>
         <span class="text">
             <h3 id="TotalUsers">0</h3>
-            <p>Usuários Assinantes</p>
-        </span>
-    </li>
-    <li>
-        <i class='bx bxs-message-dots' ></i>
-        <span class="text">
-            <h3>0</h3>
-            <p>Mensagens</p>
+            <p>Usuários Ativos</p>
         </span>
     </li>
 </ul>
@@ -112,35 +105,6 @@ export default () => {
                 </tr>
             </tbody>
         </table>
-    </div>
-    <div class="todo">
-        <div class="head">
-            <h3>Todos</h3>
-            <i class='bx bx-plus' ></i>
-            <i class='bx bx-filter' ></i>
-        </div>
-        <ul class="todo-list">
-            <li class="completed">
-                <p>Todo List</p>
-                <i class='bx bx-dots-vertical-rounded' ></i>
-            </li>
-            <li class="completed">
-                <p>Todo List</p>
-                <i class='bx bx-dots-vertical-rounded' ></i>
-            </li>
-            <li class="not-completed">
-                <p>Todo List</p>
-                <i class='bx bx-dots-vertical-rounded' ></i>
-            </li>
-            <li class="completed">
-                <p>Todo List</p>
-                <i class='bx bx-dots-vertical-rounded' ></i>
-            </li>
-            <li class="not-completed">
-                <p>Todo List</p>
-                <i class='bx bx-dots-vertical-rounded' ></i>
-            </li>
-        </ul>
     </div>
 </div>`
 

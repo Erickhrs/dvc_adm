@@ -77,12 +77,7 @@ if (isset($_POST['name_adm'])) {
             </li>
         </ul>
         <ul class="side-menu">
-            <li>
-                <a href="#settings">
-                    <i class='bx bxs-cog'></i>
-                    <span class="text">Configurações</span>
-                </a>
-            </li>
+           
             <li>
                 <a href="./logout.php" class="logout">
                     <i class='bx bx-exit'></i>
@@ -100,14 +95,8 @@ if (isset($_POST['name_adm'])) {
         <nav>
             <i class='bx bx-menu'></i>
             <a  class="nav-link">Categorias</a>
-            <form action="#">
-                <div class="form-input">
-                    <input type="search" placeholder="Search...">
-                    <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
-                </div>
-            </form>
-            <input type="checkbox" id="switch-mode" hidden>
-            <label for="switch-mode" class="switch-mode"></label>
+          
+            
             <a  class="notification">
                 <i class='bx bxs-bell'></i>
                 <span class="num">8</span>

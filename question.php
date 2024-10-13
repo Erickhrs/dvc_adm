@@ -120,6 +120,9 @@ $stmt->close();
         margin-top: 20px;
         margin-left: 20px;
         margin-bottom: -8px;
+        flex-wrap: wrap;
+        display: flex;
+        gap: 10px;
     }
 
     .span_keys {
@@ -169,15 +172,9 @@ $stmt->close();
     <section id="content">
         <nav>
             <i class='bx bx-menu'></i>
-            <a class="nav-link">Categorias</a>
-            <form action="#">
-                <div class="form-input">
-                    <input type="search" placeholder="Search...">
-                    <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
-                </div>
-            </form>
-            <input type="checkbox" id="switch-mode" hidden>
-            <label for="switch-mode" class="switch-mode"></label>
+          
+          
+            
             <a class="notification"><i class='bx bxs-bell'></i><span class="num">8</span></a>
             <a href="./profile.php" class="profile"><img src=<?php echo "$picture"?>></a>
         </nav>

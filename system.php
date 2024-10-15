@@ -43,7 +43,7 @@ include('./includes/currentUserInfos.php');
                     <span class="text">Estatísticas</span>
                 </a>
             </li>
-            <li>
+            <li style="display:none">
                 <a href="./system.php#messages">
                     <i class='bx bxs-message-dots'></i>
                     <span class="text">Mensagens</span>
@@ -63,7 +63,7 @@ include('./includes/currentUserInfos.php');
             </li>
         </ul>
         <ul class="side-menu">
-           
+
             <li>
                 <a href="./logout.php" class="logout">
                     <i class='bx bx-exit'></i>
@@ -80,10 +80,10 @@ include('./includes/currentUserInfos.php');
         <!-- NAVBAR -->
         <nav>
             <i class='bx bx-menu'></i>
-          
-          
-            
-         
+
+
+
+
             <a href="./profile.php" class="profile">
                 <img src=<?php echo "$picture" ?>>
             </a>
@@ -96,6 +96,7 @@ include('./includes/currentUserInfos.php');
         <!-- MAIN -->
     </section>
     <!-- CONTENT -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src=" https://cdn.tiny.cloud/1/qk0ibpi1dj92lq7s1xyzxsuyvucx13dpmizy96s218ufe66x/tinymce/7/tinymce.min.js"
         referrerpolicy="origin"></script>
     <script src="./scripts/richtextarea.js"></script>

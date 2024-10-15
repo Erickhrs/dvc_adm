@@ -67,7 +67,7 @@ if (isset($_POST['name_user'])) {
                     <span class="text">Estatísticas</span>
                 </a>
             </li>
-            <li>
+            <li style="display:none">
                 <a href="./system.php#messages">
                     <i class='bx bxs-message-dots'></i>
                     <span class="text">Mensagens</span>

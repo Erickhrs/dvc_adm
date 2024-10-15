@@ -96,7 +96,7 @@ $displayType = 'option';
                     <span class="text">Estatísticas</span>
                 </a>
             </li>
-            <li>
+            <li style="display:none">
                 <a href="./system.php#messages">
                     <i class='bx bxs-message-dots'></i>
                     <span class="text">Mensagens</span>
@@ -116,7 +116,7 @@ $displayType = 'option';
             </li>
         </ul>
         <ul class="side-menu">
-           
+
             <li>
                 <a href="./logout.php" class="logout">
                     <i class='bx bx-exit'></i>
@@ -132,8 +132,8 @@ $displayType = 'option';
         <nav>
             <i class='bx bx-menu'></i>
             <a href="#" class="nav-link">Categorias</a>
-          
-            
+
+
             <a href="#" class="notification">
                 <i class='bx bxs-bell'></i>
                 <span class="num">8</span>

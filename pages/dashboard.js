@@ -23,10 +23,6 @@ export default () => {
             </li>
         </ul>
     </div>
-    <a  class="btn-download">
-        <i class='bx bxs-cloud-download' ></i>
-        <span class="text">Download PDF</span>
-    </a>
 </div>
 
 <ul class="box-info">

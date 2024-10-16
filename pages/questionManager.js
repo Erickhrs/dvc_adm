@@ -75,9 +75,10 @@ export default () => {
             <div class="order" style="padding:0px!important;background-color:transparent!important;">
                 <div class="head" style="margin-bottom:0px!important">
                     <a href="./newQuestion.php" class="newQuestionBtn"><i class='bx bx-plus'></i>Nova questão</a>
+                    <a href="./upload_mult.php" class="newQuestionBtn"><i class='bx bx-upload'></i>Upload em Massa<a>
                     <a href="./disciplines.php" class="newQuestionBtn"><i class='bx bx-plus'></i>Novo atributo<a>
                     <a href="./newExam.php" class="newQuestionBtn"><i class='bx bx-plus'></i>Novo Simulado<a>
-                    <a href="./exams_list.php" class="newQuestionBtn"><i class='bx bx-book-open'></i>Gerenciar Simulados<a>
+                    <a href="./exams_list.php" class="newQuestionBtn"><i class='bx bx-book-open'></i>Gerenciar Simulados<a>  
                 </div>
             </div>
         </div>

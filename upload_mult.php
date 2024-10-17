@@ -152,6 +152,7 @@
     <!-- Conteúdo Principal -->
     <main>
         <div id="result">
+            <button id="submit-data" onclick="submitData()">Enviar Dados para o Banco de Dados</button>
             <?php
 session_start(); // Inicie a sessão no início do arquivo
 
@@ -162,7 +163,7 @@ if (isset($_SESSION['data'])) {
     unset($_SESSION['data']); // Limpa os dados da sessão após exibir
 }
 ?>
-            <button id="submit-data" onclick="submitData()">Enviar Dados para o Banco de Dados</button>
+
         </div>
     </main>
 
@@ -207,6 +208,12 @@ if (isset($_SESSION['data'])) {
     });
 
     function submitData() {
+        const submitButton = document.getElementById('submit-data');
+
+        // Desabilita o botão para evitar múltiplos envios
+        submitButton.disabled = true;
+        submitButton.innerText = 'Enviado';
+
         const table = document.getElementById('data-table');
         const rows = table.getElementsByTagName('tr');
         const data = [];
@@ -240,9 +247,19 @@ if (isset($_SESSION['data'])) {
                     timer: 1500,
                     showConfirmButton: false
                 });
+
+                if (!result.success) {
+                    // Reabilita o botão se houver erro
+                    submitButton.disabled = false;
+                    submitButton.innerText = 'Enviar Dados para o Banco de Dados';
+                }
             })
             .catch(error => {
                 console.error('Erro:', error);
+
+                // Reabilita o botão em caso de erro na requisição
+                submitButton.disabled = false;
+                submitButton.innerText = 'Enviar Dados para o Banco de Dados';
             });
     }
     </script>

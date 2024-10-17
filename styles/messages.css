@@ -1,0 +1,68 @@
+/* Estilos Gerais para a Página de Comentários e Feedbacks */
+.comment-section, .feedback-section {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 10px!important;
+}
+
+.comment-section h2, .feedback-section h2 {
+    font-size: 1.5em;
+    color: #4CAF50;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.comment-section ul, .feedback-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.comment-section li, .feedback-section li {
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-section li:last-child, .feedback-section li:last-child {
+    border-bottom: none;
+}
+
+.comment-section li p, .feedback-section li p {
+    margin: 5px 0;
+}
+
+.comment-section strong, .feedback-section strong {
+    color: #555;
+}
+
+.comment-section img, .feedback-section img {
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    width: 60px;
+    height: 60px;
+}
+
+/* Responsividade */
+@media (min-width: 600px) {
+    .comment-section li, .feedback-section li {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .comment-section li p, .feedback-section li p {
+        flex: 1;
+        margin-right: 20px;
+    }
+
+    .comment-section img, .feedback-section img {
+        width: 80px;
+        height: 80px;
+    }
+}

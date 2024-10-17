@@ -44,7 +44,7 @@ include('./includes/currentUserInfos.php');
                 </a>
             </li>
             <li>
-                <a href="./system.php#messages">
+                <a href="./messages.php">
                     <i class='bx bxs-message-dots'></i>
                     <span class="text">Mensagens</span>
                 </a>

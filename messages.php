@@ -13,8 +13,7 @@ include('./includes/currentUserInfos.php');
     <link rel="stylesheet" href="./styles/system.css">
     <link rel="stylesheet" href="./styles/global.css">
     <link rel="shortcut icon" href="./assets/logo.ico" type="image/x-icon">
-
-    <title>DVC - ADMIN</title>
+    <link rel="stylesheet" href="./styles/messages.css">
 </head>
 
 <body>
@@ -25,7 +24,7 @@ include('./includes/currentUserInfos.php');
 			margin-right: 15px">
         </a>
         <ul class="side-menu top">
-            <li class="active">
+            <li>
                 <a href="./system.php#dashboard">
                     <i class='bx bxs-dashboard'></i>
                     <span class="text">Painel</span>
@@ -43,7 +42,7 @@ include('./includes/currentUserInfos.php');
                     <span class="text">Estatísticas</span>
                 </a>
             </li>
-            <li>
+            <li class="active">
                 <a href="./messages.php">
                     <i class='bx bxs-message-dots'></i>
                     <span class="text">Mensagens</span>
@@ -63,7 +62,7 @@ include('./includes/currentUserInfos.php');
             </li>
         </ul>
         <ul class="side-menu">
-           
+
             <li>
                 <a href="./logout.php" class="logout">
                     <i class='bx bx-exit'></i>
@@ -80,11 +79,11 @@ include('./includes/currentUserInfos.php');
         <!-- NAVBAR -->
         <nav>
             <i class='bx bx-menu'></i>
-          
-          
-            
-         
-            <a href="" class="profile">
+
+
+
+
+            <a href="./profile.php" class="profile">
                 <img src=<?php echo "$picture" ?>>
             </a>
         </nav>
@@ -94,80 +93,30 @@ include('./includes/currentUserInfos.php');
         <main id="root">
             <div class="head-title">
                 <div class="left">
-                    <h1>Perfil</h1>
+                    <h1>Mensagens</h1>
                     <ul class="breadcrumb">
                         <li>
-                            <a>Painel</a>
+                            <a>Mensagens</a>
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
-                            <a class="active" href="./profile.php">Perfil</a>
+                            <a class="active">Painel</a>
                         </li>
                     </ul>
                 </div>
             </div>
-            <ul class="userInfos">
-                <li>
-                    <div class="editPersonalInfos">
-                        <a href="./changePassword.php"><i class='bx bxs-key' title="Atualizar senha"></i></a>
-                        <a href="./profileEdit.php"> <i class='bx bx-edit' title="Editar Informações do perfil"></i></a>
-                    </div>
-                    <img src=<?php echo "$picture" ?>>
-                    <div class="text">
-                        <p>
-                            <i class='bx bx-user'></i>Nome: <br><span><?php echo "$name" ?></span>
-                        </p>
-                        <p>
-                            <i class='bx bx-envelope'></i>Email:<br><span><?php echo "$email" ?></span>
-                        </p>
-                        <p>
-                            <i class='bx bxs-map-alt'></i>UF:<br><span><?php echo "$UF" ?></span>
-                        </p>
-                        <P>
-                            <i class='bx bxs-calendar'></i>Desde:<br><span><?php echo "$since" ?></span>
-                        </P>
-                        <p>
-                            <i class='bx bx-station'></i>Status:<br>
-                            <span class="<?php echo htmlspecialchars($status); ?>_status">
-                                <?php echo htmlspecialchars($status); ?>
-                            </span>
-                        </p>
-                        <P>
-                            <i class='bx bx-briefcase'></i>Cargo:<br>
-                            <span class="<?php echo "$roles_id" ?>_cargo"><?php echo "$roles_id" ?>
-                            </span>
-                        </P>
-                    </div>
-                </li>
-            </ul>
-            <ul class="box-info">
-                <li>
-                    <i class='bx bxs-layer'></i>
-                    <span class="text">
-                        <h3>0</h3>
-                        <p>Questões</p>
-                    </span>
-                </li>
-                <li>
-                    <i class='bx bxs-group'></i>
-                    <span class="text">
-                        <h3>0</h3>
-                        <p>Usuários Assinantes</p>
-                    </span>
-                </li>
-                <li>
-                    <i class='bx bxs-message-dots'></i>
-                    <span class="text">
-                        <h3>0</h3>
-                        <p>Mensagens</p>
-                    </span>
-                </li>
-            </ul>
-            </ </main>
-            <!-- MAIN -->
+
+            <?php
+            include_once('./includes/get_messages.php');
+            ?>
+        </main>
+        <!-- MAIN -->
     </section>
     <!-- CONTENT -->
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src=" https://cdn.tiny.cloud/1/qk0ibpi1dj92lq7s1xyzxsuyvucx13dpmizy96s218ufe66x/tinymce/7/tinymce.min.js"
+        referrerpolicy="origin"></script>
+    <script src="./scripts/richtextarea.js"></script>
     <script src="./scripts/system.js"></script>
     <script type="module" src="./scripts/spa.js"></script>
 </body>

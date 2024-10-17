@@ -68,7 +68,7 @@ if ($cpf_user == "null") {
                     <span class="text">Estatísticas</span>
                 </a>
             </li>
-            <li style="display:none">
+            <li>
                 <a href="./system.php#messages">
                     <i class='bx bxs-message-dots'></i>
                     <span class="text">Mensagens</span>

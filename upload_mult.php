@@ -200,6 +200,17 @@ include('./includes/protect.php');
         /* Espaço entre o ícone e o texto */
         font-size: 20px;
     }
+
+    .fade-in {
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+        /* Duração e suavidade da transição */
+    }
+
+    .fade-in.visible {
+        opacity: 1;
+        /* Opacidade final quando a classe 'visible' é adicionada */
+    }
     </style>
 </head>
 
@@ -243,7 +254,16 @@ include('./includes/protect.php');
 
 
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    docudocument.addEventListener('DOMContentLoaded', function() {
+        const mainContent = document.querySelector('main'); // Selecione o elemento principal
+        mainContent.classList.add('fade-in'); // Adicione a classe 'fade-in'
+
+        // Após um pequeno atraso, adicione a classe 'visible' para ativar o efeito
+        setTimeout(() => {
+            mainContent.classList.add('visible');
+        }, 10); // Atraso mínimo para garantir que a classe fade-in seja aplicada
+    });
+    ment.addEventListener('DOMContentLoaded', function() {
         const table = document.getElementById('data-table');
         const cells = table.querySelectorAll('td');
 

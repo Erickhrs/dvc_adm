@@ -4,6 +4,7 @@ export default () => {
             const response = await fetch('./actions/counts.php');
             const data = await response.json();
             document.querySelector('#TotalQuestions').textContent = data.totalQuestions;
+            document.querySelector('#TotalDesaQuestions').textContent = data.totalDesaQuestions; 
         } catch (error) {
             console.error('Error fetching count:', error);
         }
@@ -25,7 +26,7 @@ export default () => {
                     filteredData.forEach(data => {
                         const tr = document.createElement('tr');
                         tr.innerHTML = `
-                            <td class="questionTD"><p style="width: fit-content;text-align: left;overflow-y: auto;max-width">${data.question}</p></td>
+                            <td class="questionTD"><p style="width: fit-content;text-align: left;overflow-y: auto;max-width;margin-left: auto; margin-right: auto;">${data.question}</p></td>
                             <td>${data.answer}</td>
                             <td>${data.adms_id}</td>
                             <td>${data.created_at}</td>
@@ -85,11 +86,18 @@ export default () => {
         </div>
 
         <ul class="box-info">
-            <li style="width:fit-content;">
+            <li>
                 <i class='bx bxs-layer'></i>
                 <span class="text">
                     <h3 id="TotalQuestions">0</h3>
                     <p>Questões ativas</p>
+                </span>
+            </li>
+             <li>
+                <i class='bx bxs-layer'></i>
+                <span class="text">
+                    <h3 id="TotalDesaQuestions">0</h3> <!-- Adicione este bloco -->
+                    <p>Questões desativadas</p>
                 </span>
             </li>
         </ul>

@@ -17,13 +17,13 @@ include('./includes/protect.php');
         font-family: 'Roboto', sans-serif;
         margin: 0;
         padding: 0;
-        background-color: var(--logo-blue);
+        background-color: #a7cd64;
         color: #333;
     }
 
     /* Navbar */
     .navbar {
-        background-color: #4CAF50;
+        background-color: #241e5d;
         color: white;
         position: fixed;
         top: 0;
@@ -200,6 +200,17 @@ include('./includes/protect.php');
         /* Espaço entre o ícone e o texto */
         font-size: 20px;
     }
+
+    .fade-in {
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+        /* Duração e suavidade da transição */
+    }
+
+    .fade-in.visible {
+        opacity: 1;
+        /* Opacidade final quando a classe 'visible' é adicionada */
+    }
     </style>
 </head>
 
@@ -243,6 +254,16 @@ include('./includes/protect.php');
 
 
     <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const mainContent = document.querySelector('main'); // Selecione o elemento principal
+        mainContent.classList.add('fade-in'); // Adicione a classe 'fade-in'
+
+        // Após um pequeno atraso, adicione a classe 'visible' para ativar o efeito
+        setTimeout(() => {
+            mainContent.classList.add('visible');
+        }, 10); // Atraso mínimo para garantir que a classe fade-in seja aplicada
+    });
+
     document.addEventListener('DOMContentLoaded', function() {
         const table = document.getElementById('data-table');
         const cells = table.querySelectorAll('td');
@@ -307,7 +328,7 @@ include('./includes/protect.php');
         }
 
         // Envia os dados via AJAX
-        fetch('./actions/insert_questions.php', {
+        fetch('./actions/insert_questions_tf.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

@@ -20,8 +20,8 @@ if (isset($_FILES['excelFile']) && $_FILES['excelFile']['error'] == 0) {
             $htmlTable = '<table id="data-table">';
             $htmlTable .= '<tr>';
             
-            // Criar cabeçalhos da tabela (primeira linha do Excel)
-            foreach ($data[0] as $header) {
+            // Criar cabeçalhos da tabela (primeira linha do Excel) - Limite para 10 colunas
+            foreach (array_slice($data[0], 0, 14) as $header) {
                 $htmlTable .= "<th>" . htmlspecialchars($header) . "</th>";
             }
             $htmlTable .= '</tr>';
@@ -29,7 +29,7 @@ if (isset($_FILES['excelFile']) && $_FILES['excelFile']['error'] == 0) {
             // Criar as linhas com os dados
             for ($i = 1; $i < count($data); $i++) {
                 $htmlTable .= '<tr>';
-                foreach ($data[$i] as $cell) {
+                foreach (array_slice($data[$i], 0, 14) as $cell) {
                     $htmlTable .= "<td>" . htmlspecialchars($cell) . "</td>";
                 }
                 $htmlTable .= '</tr>';
@@ -41,7 +41,7 @@ if (isset($_FILES['excelFile']) && $_FILES['excelFile']['error'] == 0) {
             $_SESSION['data'] = $htmlTable;
 
             // Redirecionar de volta para a página inicial
-            header('Location: ../upload_mult.php');
+            header('Location: ../upload_tf.php');
             exit(); // Adicione exit após o redirecionamento
         } catch (Exception $e) {
             echo "Erro ao carregar o arquivo Excel: " . $e->getMessage();

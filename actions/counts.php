@@ -6,7 +6,7 @@ include('../includes/protect.php');
 $data = array();
 
 // Obtenha a contagem de questões
-$sql = "SELECT COUNT(*) as total FROM questions";
+$sql = "SELECT COUNT(*) as total FROM questions WHERE status = 1";
 $result = $mysqli->query($sql);
 if ($result) {
     $row = $result->fetch_assoc();
@@ -14,6 +14,17 @@ if ($result) {
 } else {
     $data['totalQuestions'] = 'ERRO';
 }
+
+// Obtenha a contagem de questões desativas
+$sql = "SELECT COUNT(*) as total FROM questions WHERE status = 0";
+$result = $mysqli->query($sql);
+if ($result) {
+    $row = $result->fetch_assoc();
+    $data['totalDesaQuestions'] = $row['total'];
+} else {
+    $data['totalDesaQuestions'] = 'ERRO';
+}
+
 
 // Obtenha a contagem de usuários
 $sql = "SELECT COUNT(*) as total FROM users";

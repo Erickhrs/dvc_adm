@@ -3,7 +3,7 @@ include_once('../includes/connection.php');
 include_once('../includes/protect.php');
 include_once('../includes/history.php');
 $displayCode = 'hide';
-include_once('../actions/get_nxtCode.php');
+include_once('../actions/get_nxtIdMult.php');
 
 header('Content-Type: application/json');
 

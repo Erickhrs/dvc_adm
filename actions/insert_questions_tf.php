@@ -71,7 +71,7 @@ if (!empty($data)) {
         $questions_ID = $next_id; // Obter o ID da questão inserida
         $next_id = getNextID($mysqli, $displayCode);
     }
-
+    newHistoryEvent($_SESSION['id'], "Fez upload em massa de VF", date('Y-m-d H:i:s'), 'ALTA');
     echo json_encode(['success' => true, 'message' => 'Dados inseridos com sucesso!']);
 } else {
     echo json_encode(['success' => false, 'message' => 'Nenhum dado recebido.']);

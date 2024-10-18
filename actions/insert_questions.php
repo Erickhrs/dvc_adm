@@ -106,7 +106,8 @@ if (!empty($data)) {
             }
         }
     }
-
+    
+    newHistoryEvent($_SESSION['id'], "Fez upload em massa de Mult", date('Y-m-d H:i:s'), 'ALTA');
     echo json_encode(['success' => true, 'message' => 'Dados inseridos com sucesso!']);
 } else {
     echo json_encode(['success' => false, 'message' => 'Nenhum dado recebido.']);

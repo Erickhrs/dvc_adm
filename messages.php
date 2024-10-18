@@ -14,6 +14,9 @@ include('./includes/currentUserInfos.php');
     <link rel="stylesheet" href="./styles/global.css">
     <link rel="shortcut icon" href="./assets/logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="./styles/messages.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -117,8 +120,50 @@ include('./includes/currentUserInfos.php');
     <script src=" https://cdn.tiny.cloud/1/qk0ibpi1dj92lq7s1xyzxsuyvucx13dpmizy96s218ufe66x/tinymce/7/tinymce.min.js"
         referrerpolicy="origin"></script>
     <script src="./scripts/richtextarea.js"></script>
-    <script src="./scripts/system.js"></script>
     <script type="module" src="./scripts/spa.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.confirm-view-button').on('click', function() {
+            const questionID = $(this).data('id');
+            const type = $(this).data('type');
+
+            // Usa alert normal para confirmação
+            const confirmAction = confirm("Você realmente deseja confirmar a visualização?");
+
+            if (confirmAction) {
+                // Se confirmado, envia a requisição AJAX para mudar o valor na tabela
+                $.ajax({
+                    url: './actions/update_view.php',
+                    type: 'POST',
+                    data: {
+                        questionID: questionID,
+                        type: type
+                    },
+                    success: function(response) {
+                        // Se sucesso, exibe SweetAlert de sucesso
+                        Swal.fire({
+                            title: 'Sucesso!',
+                            text: 'Visualização confirmada com sucesso!',
+                            icon: 'success',
+                        }).then(() => {
+                            // Recarrega a página para ver a alteração
+                            location.reload();
+                        });
+                    },
+                    error: function(xhr) {
+                        // Se erro, exibe SweetAlert de erro
+                        Swal.fire({
+                            title: 'Erro!',
+                            text: 'Ocorreu um erro ao confirmar a visualização.',
+                            icon: 'error',
+                        });
+                    }
+                });
+            }
+        });
+    });
+    </script>
+
 </body>
 
 </html>

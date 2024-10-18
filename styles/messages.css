@@ -52,7 +52,6 @@
 @media (min-width: 600px) {
     .comment-section li, .feedback-section li {
         flex-direction: row;
-        justify-content: space-between;
         align-items: center;
     }
 

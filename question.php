@@ -172,10 +172,10 @@ $stmt->close();
     <section id="content">
         <nav>
             <i class='bx bx-menu'></i>
-          
-          
-            
-            <a class="notification"><i class='bx bxs-bell'></i><span class="num">8</span></a>
+
+
+
+
             <a href="./profile.php" class="profile"><img src=<?php echo "$picture"?>></a>
         </nav>
         <main id="root">

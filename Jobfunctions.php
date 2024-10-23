@@ -20,7 +20,7 @@ include('./includes/currentUserInfos.php');
 <body>
 
     <section id="sidebar">
-        <a  class="brand">
+        <a class="brand">
             <img src="./assets/logo.png" alt=" logo" style="width: 137px; margin-left: 17px;
 			margin-right: 15px">
         </a>
@@ -63,7 +63,7 @@ include('./includes/currentUserInfos.php');
             </li>
         </ul>
         <ul class="side-menu">
-           
+
             <li>
                 <a href="./logout.php" class="logout">
                     <i class='bx bx-exit'></i>
@@ -80,13 +80,10 @@ include('./includes/currentUserInfos.php');
         <!-- NAVBAR -->
         <nav>
             <i class='bx bx-menu'></i>
-            <a  class="nav-link">Categorias</a>
-          
-            
-            <a  class="notification">
-                <i class='bx bxs-bell'></i>
-                <span class="num">8</span>
-            </a>
+
+
+
+
             <a href="./profile.php" class="profile">
                 <img src=<?php echo "$picture" ?>>
             </a>
@@ -100,11 +97,11 @@ include('./includes/currentUserInfos.php');
                     <h1>Novo Atributo</h1>
                     <ul class="breadcrumb">
                         <li>
-                            <a >Painel</a>
+                            <a>Painel</a>
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
-                            <a class="active" >Home</a>
+                            <a class="active">Home</a>
                         </li>
                     </ul>
                 </div>

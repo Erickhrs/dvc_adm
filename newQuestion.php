@@ -66,7 +66,7 @@ $displayType = 'option';
             </li>
         </ul>
         <ul class="side-menu">
-           
+
             <li>
                 <a href="./logout.php" class="logout">
                     <i class='bx bx-exit'></i>
@@ -84,12 +84,9 @@ $displayType = 'option';
         <nav>
             <i class='bx bx-menu'></i>
             <a href="#" class="nav-link">Categorias</a>
-          
-            
-            <a href="#" class="notification">
-                <i class='bx bxs-bell'></i>
-                <span class="num">8</span>
-            </a>
+
+
+    
             <a href="./profile.php" class="profile">
                 <img src=<?php echo "$picture" ?>>
             </a>

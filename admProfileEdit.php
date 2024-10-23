@@ -34,7 +34,7 @@ if (isset($_POST['name_adm'])) {
 <body>
 
     <section id="sidebar">
-        <a  class="brand">
+        <a class="brand">
             <img src="./assets/logo.png" alt=" logo" style="width: 137px; margin-left: 17px;
 			margin-right: 15px">
         </a>
@@ -77,7 +77,7 @@ if (isset($_POST['name_adm'])) {
             </li>
         </ul>
         <ul class="side-menu">
-           
+
             <li>
                 <a href="./logout.php" class="logout">
                     <i class='bx bx-exit'></i>
@@ -94,13 +94,10 @@ if (isset($_POST['name_adm'])) {
         <!-- NAVBAR -->
         <nav>
             <i class='bx bx-menu'></i>
-            <a  class="nav-link">Categorias</a>
-          
-            
-            <a  class="notification">
-                <i class='bx bxs-bell'></i>
-                <span class="num">8</span>
-            </a>
+
+
+
+        
             <a href="" class="profile">
                 <img src=<?php echo "$picture" ?>>
             </a>
@@ -114,11 +111,11 @@ if (isset($_POST['name_adm'])) {
                     <h1>Perfil Adm</h1>
                     <ul class="breadcrumb">
                         <li>
-                            <a >Painel</a>
+                            <a>Painel</a>
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
-                            <a class="active" >Edit</a>
+                            <a class="active">Edit</a>
                         </li>
                     </ul>
                 </div>

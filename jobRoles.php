@@ -80,13 +80,9 @@ include('./includes/currentUserInfos.php');
         <!-- NAVBAR -->
         <nav>
             <i class='bx bx-menu'></i>
-            <a  class="nav-link">Categorias</a>
-          
             
-            <a  class="notification">
-                <i class='bx bxs-bell'></i>
-                <span class="num">8</span>
-            </a>
+          
+        
             <a href="./profile.php" class="profile">
                 <img src=<?php echo "$picture" ?>>
             </a>

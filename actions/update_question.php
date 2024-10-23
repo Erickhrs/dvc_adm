@@ -77,6 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "Erro ao atualizar a questão: " . $stmt->error;
         }
     }
+    header('Location: ../system.php');
 } else {
     echo "Método inválido.";
 }

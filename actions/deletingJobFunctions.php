@@ -26,11 +26,11 @@ if (isset($_POST) && !empty($_POST) && $_POST['validation'] == 'eu quero excluir
         $sql = "DELETE FROM job_functions where ID = '$ID'";
         $sql_query = $mysqli->query($sql) or die("Falha na execução do código SQL: " . $mysqli->error);
         newHistoryEvent($_SESSION['id'], "Deletou uma atuação (#". $ID . " - " . $name . ")", date('Y-m-d H:i:s'), 'ALTA');
-        header('Location: ../jobFunctions.php');
+        header('Location: ../ajf.php');
     }
 }
 else{
-    header('Location: ../jobFunctions.php');
+    header('Location: ../ajf.php');
 }
 ?>
 

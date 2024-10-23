@@ -113,7 +113,7 @@ include('./includes/currentUserInfos.php');
                     <a href="./bancas.php" id=""><i class='bx bx-coin'></i>Banca</a>
                     <a href="./jobRoles.php" id=""><i class='bx bx-coin'></i>Cargo</a>
                     <a href="./courses.php" id="" class="userType-active"><i class='bx bx-coin'></i>Formação</a>
-                    <a href="./jobFunctions.php" id=""><i class='bx bx-coin'></i>Atuação</a>
+                    <a href="./ajf.php" id=""><i class='bx bx-coin'></i>Atuação</a>
                 </div>
             </div>
             <div class="atrContainers">

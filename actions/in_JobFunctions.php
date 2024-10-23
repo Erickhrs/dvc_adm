@@ -18,7 +18,7 @@ if (isset($_POST['newJobFunctions']) && !empty($_POST['newJobFunctions'])) {
     $new = $_POST['newJobFunctions'];
     if (isDuplicate($mysqli, 'job_function', $new)) {
         echo "<script>alert('ERRO: JA EXISTE ESSE ATRIBUTO')</script>";
-        header('Location: ../jobFunctions.php');
+        header('Location: ../ajf.php');
     } else{
     $sql = 'INSERT INTO job_functions (job_function) VALUES (?)';
 
@@ -33,12 +33,12 @@ if (isset($_POST['newJobFunctions']) && !empty($_POST['newJobFunctions'])) {
     $stmt->close();
     $mysqli->close();
     newHistoryEvent($_SESSION['id'], "Adicionou uma nova Atuação (". $new . ")", date('Y-m-d H:i:s'), 'BAIXA');
-    header('Location: ../jobFunctions.php');
+    header('Location: ../ajf.php');
     }
    
 } else {
     echo "<script>alert('ERRO: CAMPO NÃO PODE ESTAR VAZIO')</script>";
-    header('Location: ../jobFunctions.php');
+    header('Location: ../ajf.php');
 }
 
 

@@ -66,7 +66,7 @@ $displayType = 'option';
             </li>
         </ul>
         <ul class="side-menu">
-           
+
             <li>
                 <a href="./logout.php" class="logout">
                     <i class='bx bx-exit'></i>
@@ -83,10 +83,10 @@ $displayType = 'option';
         <!-- NAVBAR -->
         <nav>
             <i class='bx bx-menu'></i>
-          
-          
-            
-         
+
+
+
+
             <a href="./profile.php" class="profile">
                 <img src=<?php echo "$picture" ?>>
             </a>
@@ -133,7 +133,7 @@ border-radius: 100px;margin-bottom: 15px;width: fit-content;" required>
                     <select id="year" name="year" required>
                         <option value="">Ano da questão</option>
                         <script>
-                        for (let ano = 1980; ano <= 2030; ano++) {
+                        for (let ano = 2030; ano >= 1980; ano--) {
                             document.write(`<option value="${ano}">${ano}</option>`);
                         }
                         </script>
@@ -185,7 +185,7 @@ border-radius: 100px;margin-bottom: 15px;width: fit-content;" required>
                     <select name="job_function[]" id="job_funcions" multiple required>
                         <?php
        $displayType = 'option';
-    include_once('./actions/get_jobFunctions.php');
+    include_once('./actions/get_ajf.php');
     ?>
                     </select>
                     <label for="course">Nível</label>

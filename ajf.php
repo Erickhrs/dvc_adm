@@ -113,7 +113,7 @@ include('./includes/currentUserInfos.php');
                     <a href="./bancas.php" id=""><i class='bx bx-coin'></i>Banca</a>
                     <a href="./jobRoles.php" id=""><i class='bx bx-coin'></i>Cargo</a>
                     <a href="./courses.php" id=""><i class='bx bx-coin'></i>Formação</a>
-                    <a href="./jobFunctions.php" id="" class="userType-active"><i class='bx bx-coin'></i>Atuação</a>
+                    <a href="./ajf.php" id="" class="userType-active"><i class='bx bx-coin'></i>Atuação</a>
                 </div>
             </div>
             <div class="atrContainers">
@@ -125,7 +125,7 @@ include('./includes/currentUserInfos.php');
                     <table>
                         <?php
                         $displayType = 'list';
-                        include_once('./actions/get_JobFunctions.php');
+                        include_once('./actions/get_ajf.php');
                         ?>
                     </table>
                 </div>
@@ -135,7 +135,7 @@ include('./includes/currentUserInfos.php');
                         <h3>Adicionar nova Atuação</h3>
                         <span style="font-size: 11px;">Escreva o nome da Atuação</span>
                     </div>
-                    <form action="./actions/in_JobFunctions.php" method="post">
+                    <form action="./actions/in_ajf.php" method="post">
                         <input type="text" name="newJobFunctions" id="" required>
                         <button type="submit"
                             style="    border: none;background-color: greenyellow;height: 30px;width: 30px;border-radius: 25px;cursor: pointer;"><i
@@ -145,7 +145,7 @@ include('./includes/currentUserInfos.php');
                         <h3>Excluir Atuação</h3>
                         <span style="font-size: 11px;">Escreva o texto de validação e informe o ID e o nome</span>
                     </div>
-                    <form action="./actions/deletingJobFunctions.php" method="post">
+                    <form action="./actions/deletingajf.php" method="post">
                         <input type="text" name="validation" id="" value="" placeholder="ESCREVA: eu quero excluir o #"
                             required>
                         <input type="text" name="atr_ID" id="" value="" placeholder="0" required>
